@@ -1,0 +1,78 @@
+{
+  "address": "Unknown Rd, Springfield, IL",
+  "score": 46.0,
+  "decision": "NO-GO",
+  "summary": "\u26a0\ufe0f Limited or missing data reduced feasibility confidence.\nResearch \u2192 Springfield, IL shows no clear policy signals \u2014 assuming neutral environment.\nPermitting \u2192 Springfield, IL (80/100)\nDesign \u2192 0.0 kW \u2192 0.0 kWh/yr\nBoM \u2192 No BoM available\nFeasibility Score Breakdown:\n\u2022 Research Score: 40/100\n\u2022 Permitting Score: 80/100\n\u2022 Design Score: 20/100\n\u2022 Weighted Composite: 46.0/100",
+  "results": [
+    {
+      "address": "Unknown Rd, Springfield, IL",
+      "favorable_policy": false,
+      "rationale": "Springfield, IL shows no clear policy signals \u2014 assuming neutral environment.",
+      "findings": [
+        {
+          "source": "dummy",
+          "title": "No clear policy signals or recent solar developments found for this location.",
+          "url": null,
+          "sentiment": "neutral"
+        },
+        {
+          "source": "dummy",
+          "title": "Assuming neutral environment for feasibility analysis.",
+          "url": null,
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "address": "Unknown Rd, Springfield, IL",
+      "jurisdiction": "Springfield, IL",
+      "form": {
+        "jurisdiction": "Springfield, IL",
+        "project_type": "Rooftop Solar",
+        "auto_filled_fields": {
+          "Project Type": "Rooftop Solar",
+          "Mounting": "Flush Mount",
+          "Applicant Name": "Feasibility Bot",
+          "Contact Email": "demo@example.com"
+        },
+        "checklist": [
+          {
+            "item": "Site Plan",
+            "required": true,
+            "provided": false,
+            "notes": null
+          },
+          {
+            "item": "Electrical Diagram",
+            "required": true,
+            "provided": false,
+            "notes": null
+          },
+          {
+            "item": "Structural Calculation Sheet",
+            "required": true,
+            "provided": false,
+            "notes": null
+          },
+          {
+            "item": "Installer License Copy",
+            "required": true,
+            "provided": false,
+            "notes": null
+          }
+        ]
+      },
+      "readiness_score": 80,
+      "blockers": []
+    },
+    {
+      "address": "Unknown Rd, Springfield, IL",
+      "capacity_kw": 0.0,
+      "annual_kwh": 0.0,
+      "bom": [],
+      "assumptions": {
+        "error": "No irradiance data available for Springfield, IL"
+      }
+    }
+  ]
+}

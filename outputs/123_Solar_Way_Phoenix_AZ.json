@@ -1,0 +1,11 @@
+{
+  "address": "123 Solar Way, Phoenix, AZ",
+  "score": 94,
+  "decision": "GO",
+  "reasons": [
+    "Policy signals favorable.",
+    "Permitting looks feasible with standard docs.",
+    "Design capacity acceptable.",
+    "Composite score: 94"
+  ]
+}
