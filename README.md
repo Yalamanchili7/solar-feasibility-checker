@@ -1,5 +1,11 @@
-# Solar Site Feasibility Multi-Agent System
+# ☀️ Solar Site Feasibility Multi-Agent System
 *A technical challenge implementation by **Sundeep Yalamanchili***
+
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
+[![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B.svg)](https://streamlit.io)
+[![Docker](https://img.shields.io/badge/container-Docker-2496ED.svg)](https://www.docker.com/)
+[![GitHub Actions](https://img.shields.io/badge/tests-GitHub%20Actions-success.svg)](https://github.com/features/actions)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ---
 
@@ -8,7 +14,7 @@
 This project is a **multi-agent AI system** that evaluates the **feasibility of solar projects** for given addresses.  
 Each agent operates independently to analyze a specific aspect of a site — policy environment, permitting requirements, and design potential — and the orchestrator combines those findings into a final **Go / No-Go** decision.
 
-It’s designed as a realistic, modular prototype that could be expanded into a production pipeline using real data sources and LLM-powered reasoning.
+It's designed as a realistic, modular prototype that could be expanded into a production pipeline using real data sources and LLM-powered reasoning.
 
 ---
 
@@ -25,53 +31,51 @@ The system implements everything requested in the **Climatize AI/ML Engineering 
 
 ## Architecture
 
-
-
+```
 agent_system/
 ├── src/
-│ ├── agents/
-│ │ ├── research_agent.py
-│ │ ├── permitting_agent.py
-│ │ └── design_agent.py
-│ │
-│ ├── utils/
-│ │ ├── geo.py
-│ │ ├── io.py
-│ │ └── scoring.py
-│ │
-│ ├── ui/
-│ │ └── app.py
-│ │
-│ ├── data/
-│ │ ├── dummy_permit_rules.json
-│ │ ├── mock_solar_irradiance.csv
-│ │ └── permit_form_template.json
-│ │
-│ ├── orchestrator.py
-│ ├── main.py
-│ └── models.py
+│   ├── agents/
+│   │   ├── research_agent.py
+│   │   ├── permitting_agent.py
+│   │   └── design_agent.py
+│   │
+│   ├── utils/
+│   │   ├── geo.py
+│   │   ├── io.py
+│   │   └── scoring.py
+│   │
+│   ├── ui/
+│   │   └── app.py
+│   │
+│   ├── data/
+│   │   ├── dummy_permit_rules.json
+│   │   ├── mock_solar_irradiance.csv
+│   │   └── permit_form_template.json
+│   │
+│   ├── orchestrator.py
+│   ├── main.py
+│   └── models.py
 │
 ├── tests/
-│ └── smoke_test.py
+│   └── smoke_test.py
 │
 ├── requirements.txt
 ├── Dockerfile
 ├── pytest.ini
 └── README.md
-
-
+```
 
 ---
 
-### Agent Responsibilities
+## Agent Responsibilities
 
 | Agent | Role | Key Output |
 |--------|------|------------|
-| **Research Agent** | Simulates querying public policy/news data. Summarizes if region is favorable for solar. | `ResearchResult` (boolean + summary) |
-| **Permitting Agent** | Classifies jurisdiction, fetches dummy permitting rules, and auto-fills form fields. | `PermittingResult` (form + readiness score) |
-| **Design Agent** | Estimates system size and annual yield using mock irradiance data. | `DesignResult` (capacity, yield, BoM) |
+| **Research Agent** | Analyzes local policy signals (using dummy data). Summarizes if region is favorable for solar. | `ResearchResult` (boolean + rationale) |
+| **Permitting Agent** | Loads mock permitting rules and auto-fills permit forms. | `PermittingResult` (form + readiness score) |
+| **Design Agent** | Estimates system capacity and annual yield using mock irradiance data. | `DesignResult` (capacity, yield, BoM) |
 
-The **Orchestrator** runs all agents asynchronously and aggregates their results into a final **composite score** and decision.
+The **Orchestrator** runs all agents asynchronously and merges their findings into a **composite score** and final decision.
 
 ---
 
@@ -79,72 +83,125 @@ The **Orchestrator** runs all agents asynchronously and aggregates their results
 
 | Component | Weight | Criteria |
 |------------|---------|----------|
-| Research | 40 pts | Favorable local policy, incentives, or no moratoriums |
-| Permitting | 30 pts | Readiness score from auto-filled permit form |
-| Design | 30 pts | ≥ 3 kW capacity and ≥ 3000 kWh/yr yield |
+| Research | 40% | Favorable local policy, incentives, or no moratoriums |
+| Permitting | 30% | Readiness score from auto-filled permit form |
+| Design | 30% | ≥ 3 kW capacity and ≥ 3000 kWh/yr yield |
 
-Total score ≤ 100 →  
-**≥ 70 = GO**, otherwise **NO-GO**.
+**Composite ≥ 70 → GO**  
+**Composite < 70 → NO-GO**
 
 ---
 
-## Running Locally
+## ⚙️ Running Locally
 
-### 1️⃣ Setup Environment
+### 1️⃣ Clone the Repository
+
 ```bash
-python -m venv .venv
-source .venv/bin/activate      # Windows: .venv\Scripts\activate
+git clone https://github.com/Yalamanchili7/solar-feasibility-checker.git
+cd solar-feasibility-checker
+```
+
+### 2️⃣ Create and Activate a Virtual Environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate       # Windows: .venv\Scripts\activate
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
 
+### 4️⃣ Run the CLI Feasibility Checker
 
-2 Run a Test Address
+```bash
+export PYTHONPATH=.
+python -m src.main --address "1207 E 8th St, Tempe, AZ"
+```
 
-python -m src.main --addresses "123 Solar Way, Phoenix, AZ"
+**✅ Expected Output**
 
-Sample Output
-Address: 123 Solar Way, Phoenix, AZ
-Decision: GO (94)
+```
+🔆 Running Solar Feasibility Check...
 
-Agent Summary
-Research   → Positive signals and no moratoriums.
-Permitting → Phoenix, AZ (80/100)
-Design     → 9.84 kW → 17318 kWh/yr
+╭───────────── Result ──────────────╮
+│ Address: 1207 E 8th St, Tempe, AZ │
+│ Decision: GO (74.5)               │
+╰───────────────────────────────────╯
+                                  Agent Summary                                  
+┏━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Agent      ┃ Summary                                                          ┃
+┡━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Research   │ Favorable policy environment for solar.                         │
+│ Permitting │ Tempe, AZ (80/100)                                              │
+│ Design     │ 9.84 kW → 16531.0 kWh/yr                                        │
+└────────────┴──────────────────────────────────────────────────────────────────┘
+✅ Site looks feasible for solar installation!
+```
 
- • Policy signals favorable.
- • Permitting looks feasible with standard docs.
- • Design capacity acceptable.
- • Composite score: 94
+A JSON report will be created under `outputs/`.
 
+### 5️⃣ Run the Streamlit Web App
 
-3 Streamlit UI (Optional)
-
+```bash
 streamlit run src/ui/app.py
+```
 
+Then open your browser to:
 
-4 Run Tests
+👉 **http://localhost:8501**
 
- PYTHONPATH=. pytest -q
+Enter a full address (e.g., `1207 E 8th St, Tempe, AZ`) and click  
+**Run Feasibility Check** to see results visually.
 
-Expected Output
-.                                                                 [100%]
+### 6️⃣ Run Unit Tests (Optional)
+
+```bash
+pytest -q
+```
+
+**✅ Expected Output**
+
+```
+.                                                                   [100%]
 1 passed in 0.7s
+```
 
+### 7️⃣ Run with Docker (Optional)
+
+If you prefer to containerize the app:
+
+```bash
+docker build -t solar-feasibility-checker .
+docker run -p 8501:8501 solar-feasibility-checker
+```
+
+Then open your browser at:  
+👉 **http://localhost:8501**
 
 ---
 
-## Reflection & Limitations
+## 💬 Reflection & Limitations
 
-This project was built as a realistic proof-of-concept rather than a production pipeline.  
-The focus was on **architecture, reasoning, and clarity**, not on building a full data integration stack.
+This project was built as a **realistic proof-of-concept** rather than a production pipeline.  
+The focus was on **architecture, reasoning, and clarity**, not on full data integrations.
 
-I intentionally mocked most external data sources to keep the system reproducible and transparent.  
-For example, the Research Agent uses simulated policy data instead of scraping live news, and the Permitting Agent loads dummy rules instead of calling real municipal APIs.  
-This allowed me to focus on how independent agents would communicate, reason, and merge their findings — which is the actual goal of the challenge.
+**Mock data** ensures reproducibility while demonstrating how independent agents can coordinate.  
+If expanded, next steps would include:
 
-If extended beyond the scope of this task, I would:
-- Plug the Research Agent into a real policy/news API and use an LLM for summarization.
-- Integrate NREL’s PVWatts or satellite imagery for the Design Agent.
-- Auto-generate PDF permit forms from the Permitting Agent’s JSON.
-- Add richer inter-agent communication and caching between runs.
+- **Connecting the Research Agent** to live policy/news APIs and LLM summarization.
 
-Overall, I’m happy with how the system came together — it’s modular, explainable, and deployable, which is what a real-world AI engineering team would need as a foundation for production-grade agent systems.
+- **Using NREL PVWatts** or satellite imagery for more accurate irradiance modeling.
+
+- **Auto-generating PDF permit forms** from the permitting JSON.
+
+- **Adding richer inter-agent communication** and caching layers.
+
+---
+
+## 🧾 License
+
+This project is released under the **MIT License** — feel free to fork, modify, and extend it.
