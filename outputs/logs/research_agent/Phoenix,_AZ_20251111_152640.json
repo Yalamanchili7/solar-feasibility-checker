@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-11-11T15:26:40.138585",
+  "address": "Phoenix, AZ",
+  "system_prompt": "You are a renewable energy policy analyst. Given recent headlines, determine whether the local environment is favorable for new solar projects. Consider permitting support, community acceptance, and environmental policies.",
+  "user_prompt": "\nAddress: Phoenix, AZ\n\nRecent Headlines:\n['Pablo Ribeiro Dias Issues Urgent Call to Action with\\xa0New Book Climate Changed Just as Renewables Eclipse Coal in Global Power Production']\n\nPlease:\n1. Summarize the policy and regulatory tone in 3\u20135 sentences.\n2. Identify up to 3 risks or red flags.\n3. Assign a favorability score (0\u2013100).\n4. Output your answer as JSON with keys: summary, risks, score, sentiment.\n",
+  "raw_response": "```json\n{\n  \"summary\": \"The recent call to action from Pablo Ribeiro Dias highlights a growing urgency to address climate change, suggesting an increasing recognition of the importance of renewable energy sources like solar. The mention of renewables eclipsing coal in global power production indicates a positive shift in energy policy and regulatory frameworks that may favor solar projects. Overall, the tone appears supportive of renewable initiatives, which could enhance permitting processes and community acceptance for new solar developments in Phoenix, AZ.\",\n  \"risks\": [\n    \"Potential pushback from traditional energy sectors that may lobby against solar projects.\",\n    \"Community concerns regarding land use and environmental impacts could arise, leading to delays in permitting.\",\n    \"Economic fluctuations or changes in federal or state incentives for solar energy could impact project viability.\"\n  ],\n  \"score\": 75,\n  \"sentiment\": \"positive\"\n}\n```",
+  "parsed_analysis": {
+    "summary": "```json\n{\n  \"summary\": \"The recent call to action from Pablo Ribeiro Dias highlights a growing urgency to address climate change, suggesting an increasing recognition of the importance of renewable energy sources like solar. The mention of renewables eclipsing coal in global power production indicat...",
+    "risks": [
+      "Malformed LLM JSON output"
+    ],
+    "score": 50,
+    "sentiment": "unknown"
+  }
+}

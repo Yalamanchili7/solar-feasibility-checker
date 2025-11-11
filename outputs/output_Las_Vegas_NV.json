@@ -1,0 +1,197 @@
+{
+  "address": "Las Vegas, NV",
+  "research": {
+    "agent": "ResearchAgent",
+    "address": "Las Vegas, NV",
+    "news_headlines": [
+      "Las Vegas-sized solar farm canceled in Nevada desert, for now"
+    ],
+    "analysis": {
+      "summary": "The recent cancellation of a large solar farm project in the Nevada desert indicates a challenging regulatory environment for solar development in Las Vegas. This decision may reflect underlying issues with permitting processes and community acceptance, suggesting that local stakeholders may not fully support large-scale solar initiatives. Additionally, the cancellation could signal potential hurdles in environmental policies that affect project viability.",
+      "risks": [
+        "Community opposition to large-scale solar projects may hinder future developments.",
+        "Permitting processes could be lengthy or complicated, delaying project timelines.",
+        "Environmental policies may impose restrictions that limit the feasibility of new solar installations."
+      ],
+      "score": 45,
+      "sentiment": "negative"
+    }
+  },
+  "permitting": {
+    "agent": "PermittingAgent",
+    "address": "Las Vegas, NV",
+    "rules": {
+      "state": "NV",
+      "jurisdiction": "Las Vegas",
+      "building_permit": true,
+      "electrical_permit": false,
+      "fire_setback": 21,
+      "avg_review_days": 10
+    },
+    "permit_form": {
+      "permit_required": {
+        "building_permit": true,
+        "electrical_permit": false
+      },
+      "fire_code_setback_inches": 21,
+      "average_review_days": 10,
+      "special_considerations": null,
+      "score": 54,
+      "jurisdiction": "Las Vegas",
+      "friendly_notes": "Las Vegas typically requires building_permit, electrical_permit with an average review time of 10 days and a fire code setback of 21 inches."
+    },
+    "friendly_notes": "Las Vegas typically requires building_permit, electrical_permit with an average review time of 10 days and a fire code setback of 21 inches."
+  },
+  "design": {
+    "agent": "DesignAgent",
+    "address": "Las Vegas, NV",
+    "pvwatts_raw": {
+      "inputs": {
+        "lat": "36.1674263",
+        "lon": "-115.1484131",
+        "system_capacity": "50.0",
+        "azimuth": "180",
+        "tilt": "20",
+        "array_type": "1",
+        "module_type": "1",
+        "losses": "14",
+        "dataset": "tmy3"
+      },
+      "errors": [],
+      "warnings": [],
+      "version": "8.4.0",
+      "ssc_info": {
+        "version": 280,
+        "build": "Linux 64 bit GNU/C++ Oct 18 2023 07:13:03",
+        "module": "pvwattsv8"
+      },
+      "station_info": {
+        "lat": 36.08300018310547,
+        "lon": -115.1500015258789,
+        "elev": 648.0,
+        "tz": -8.0,
+        "location": "723860",
+        "city": "\"LAS VEGAS MCCARRAN INTL AP\"",
+        "state": "NV",
+        "solar_resource_file": "723860.csv",
+        "distance": 9456,
+        "weather_data_source": "NSRDB 1991-2005 Archive TMY3"
+      },
+      "outputs": {
+        "ac_monthly": [
+          5275.966070405411,
+          5651.671937912339,
+          7244.715846201352,
+          8548.741029129178,
+          8857.752828773415,
+          8583.199551901134,
+          8538.94717889637,
+          8460.403966254691,
+          7760.729108184445,
+          6990.723616438333,
+          5836.039873613198,
+          5226.389625806597
+        ],
+        "poa_monthly": [
+          131.5303763353463,
+          141.5439580577905,
+          183.8837457699925,
+          223.3986082263814,
+          237.2815231788405,
+          235.3263035431085,
+          239.4441315637355,
+          234.4177590241187,
+          213.1876261807812,
+          183.6088619117059,
+          147.9892163474836,
+          130.5996214710495
+        ],
+        "solrad_monthly": [
+          4.242915365656334,
+          5.055141359206806,
+          5.931733734515886,
+          7.446620274212714,
+          7.654242683188403,
+          7.844210118103618,
+          7.724004243991469,
+          7.561863194326409,
+          7.106254206026039,
+          5.922866513280836,
+          4.932973878249452,
+          4.212891015195144
+        ],
+        "dc_monthly": [
+          5532.230059279942,
+          5923.780553135998,
+          7597.827210199182,
+          8964.242030544065,
+          9279.801273842944,
+          8987.808583987871,
+          8943.443077393256,
+          8859.92894725709,
+          8125.979129648277,
+          7318.655183354005,
+          6118.231939063622,
+          5484.677784577892
+        ],
+        "ac_annual": 86975.28063351664,
+        "solrad_annual": 6.302976382162758,
+        "capacity_factor": 19.85737000765211
+      }
+    },
+    "design": {
+      "system_capacity_kwdc": 100,
+      "system_capacity_kwac": 120,
+      "annual_production_kwh": 86975.28063351664,
+      "specific_yield_kwh_per_kw": 869.7528063351664,
+      "estimated_cost_usd": 120000,
+      "estimated_LCOE_usd_per_kWh": 0.048,
+      "bill_of_materials": {
+        "modules": {
+          "quantity": 250,
+          "model": "SunPower X-Series",
+          "power_w": 400
+        },
+        "inverters": {
+          "quantity": 2,
+          "model": "SolarEdge SE11400H",
+          "capacity_kw": 60
+        },
+        "racking": {
+          "type": "roof mount",
+          "material": "aluminum"
+        },
+        "bos": [
+          "DC/AC disconnect switch",
+          "fuse box",
+          "cabling",
+          "grounding equipment",
+          "monitoring system"
+        ]
+      },
+      "design_notes": [
+        "Assumed a rooftop installation with no shading.",
+        "AC/DC ratio of 1.2 used for inverter sizing.",
+        "Estimated cost based on $1200 per kWdc installed.",
+        "LCOE calculated over a 25-year lifespan.",
+        "Specific yield indicates good performance for the location."
+      ],
+      "score": 80
+    }
+  },
+  "final_decision": {
+    "go_no_go": "NO_GO",
+    "score": 58,
+    "component_scores": {
+      "research": 45,
+      "permitting": 54,
+      "design": 80
+    },
+    "justification": [
+      "Research score 45 reflects local policy sentiment and renewable support.",
+      "Permitting score 54 accounts for jurisdiction requirements and review timelines.",
+      "Design score 80 measures technical yield, cost efficiency, and system robustness.",
+      "Weighted overall feasibility score is 58, resulting in a 'NO_GO' decision."
+    ]
+  }
+}

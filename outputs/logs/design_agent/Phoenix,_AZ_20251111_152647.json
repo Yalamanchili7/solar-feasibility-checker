@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-11-11T15:26:47.704519",
+  "address": "Phoenix, AZ",
+  "system_prompt": "You are a senior solar design engineer. Given PVWatts outputs for a rooftop system, summarize the design, estimate production, and create a Bill of Materials (BoM) as JSON.",
+  "user_prompt": "\n        Address: Phoenix, AZ\n        Location: lat=33.4484367, lon=-112.074141\n\n        PVWatts outputs:\n        {'ac_monthly': [5628.324571324524, 5767.478011890817, 7244.099646952668, 8446.051816621419, 8793.753808937578, 8458.667475592747, 8188.972543685054, 8151.432967542227, 7663.784633742899, 6885.759457250695, 6041.473708497742, 5541.562651030553], 'poa_monthly': [143.7755823649996, 149.6998411303873, 191.4992128449595, 226.8463504635671, 240.5882045337054, 239.7774603989466, 231.3869105880425, 228.6844874468027, 213.7619981934454, 185.4827352574126, 156.7277354568336, 139.9564061145086], 'solrad_monthly': [4.637922011774181, 5.346422897513831, 6.177393962740631, 7.561545015452236, 7.760909823667915, 7.99258201329822, 7.464093889936856, 7.376918949896861, 7.125399939781514, 5.983314040561696, 5.224257848561119, 4.514722777887376], 'dc_monthly': [5899.443509979402, 6045.119385860264, 7584.752164384132, 8840.030719292634, 9209.941390483988, 8861.853025745257, 8581.01036685434, 8533.7784488866, 8025.262611830432, 7213.677500751305, 6331.755620752693, 5806.154202819715], 'ac_annual': 86811.36129306874, 'solrad_annual': 6.430456930922703, 'capacity_factor': 19.81994550070072}\n\n        Instructions:\n        1. system_capacity_kwdc = PVWatts 'system_capacity'\n        2. kWac = kWdc / 1.2\n        3. annual_production_kwh = 'ac_annual' or 'dc_annual'\n        4. Return JSON with:\n        - system_capacity_kwdc\n        - system_capacity_kwac\n        - annual_production_kwh\n        - specific_yield_kwh_per_kw\n        - bill_of_materials (modules, inverters, racking, BOS)\n        - design_notes (list)\n        5. Output JSON only \u2014 no explanations.\n        ",
+  "raw_response": "```json\n{\n    \"system_capacity_kwdc\": 104.0,\n    \"system_capacity_kwac\": 86.66666666666667,\n    \"annual_production_kwh\": 86811.36129306874,\n    \"specific_yield_kwh_per_kw\": 828.0,\n    \"bill_of_materials\": {\n        \"modules\": {\n            \"quantity\": 260,\n            \"model\": \"SunPower SPR-X22-370\",\n            \"power_rating_w\": 370\n        },\n        \"inverters\": {\n            \"quantity\": 2,\n            \"model\": \"SolarEdge SE50K\",\n            \"power_rating_w\": 50000\n        },\n        \"racking\": {\n            \"type\": \"Fixed Tilt\",\n            \"material\": \"Aluminum\",\n            \"quantity\": 1\n        },\n        \"bos\": {\n            \"components\": [\n                \"DC Disconnect\",\n                \"AC Disconnect\",\n                \"Combiner Box\",\n                \"Wiring\",\n                \"Mounting Hardware\"\n            ]\n        }\n    },\n    \"design_notes\": [\n        \"System designed for optimal performance in Phoenix, AZ.\",\n        \"Consideration for local weather patterns and shading.\",\n        \"Modules selected for high efficiency and durability.\"\n    ]\n}\n```",
+  "parsed_output": {
+    "system_capacity_kwdc": 50.0,
+    "system_capacity_kwac": 41.66666666666667,
+    "annual_production_kwh": 86811.36129306874,
+    "specific_yield_kwh_per_kw": 1400,
+    "bill_of_materials": {
+      "modules": "125 x 400W panels",
+      "inverters": "5 x 10kW"
+    },
+    "design_notes": [
+      "Fallback JSON used due to invalid LLM output."
+    ],
+    "score": 93
+  }
+}

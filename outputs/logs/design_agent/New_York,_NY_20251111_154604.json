@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-11-11T15:46:04.628040",
+  "address": "New York, NY",
+  "system_prompt": "You are a senior solar design engineer. Given PVWatts outputs, produce a detailed system summary with production, cost, and a Bill of Materials. Respond strictly in JSON \u2014 no markdown or prose.",
+  "user_prompt": "\nAddress: New York, NY\nLocation: lat=40.7127281, lon=-74.0060152\n\nPVWatts outputs:\n{\n  \"ac_monthly\": [\n    3468.633278421161,\n    4280.4960927561,\n    6023.491648850994,\n    6315.045787999195,\n    6577.066005299217,\n    7276.831456250011,\n    7339.913947173607,\n    6753.362772533625,\n    5751.61123519736,\n    5023.136342374891,\n    3491.96750624791,\n    3005.015396894261\n  ],\n  \"poa_monthly\": [\n    81.06478059355916,\n    101.62743216282,\n    147.0438684910802,\n    159.0040080316064,\n    170.7508644962809,\n    191.3111868131371,\n    195.3046485291769,\n    177.8976397192391,\n    148.3348771537004,\n    124.5587517491956,\n    85.93532049933395,\n    71.45294738394547\n  ],\n  \"solrad_monthly\": [\n    2.614992922372876,\n    3.629551148672143,\n    4.743350596486458,\n    5.300133601053548,\n    5.508092403105837,\n    6.377039560437902,\n    6.300149952554093,\n    5.738633539330293,\n    4.944495905123347,\n    4.01802424997405,\n    2.864510683311132,\n    2.304933786578886\n  ],\n  \"dc_monthly\": [\n    3659.734209577577,\n    4500.949077207599,\n    6324.301913847526,\n    6633.326275889406,\n    6911.294579015104,\n    7639.636728324355,\n    7705.12620363876,\n    7090.691710719776,\n    6042.017126435111,\n    5280.311181610013,\n    3684.069871634677,\n    3178.427103456172\n  ],\n  \"ac_annual\": 65306.57146999824,\n  \"solrad_annual\": 4.52865902908338,\n  \"capacity_factor\": 14.91017613470285\n}\n\nInstructions:\n1. Assume a rooftop system of the given 'system_capacity' in kWdc.\n2. Use AC/DC ratio = 1.2 to compute kWac.\n3. Estimate annual production using 'ac_annual' or 'dc_annual'.\n4. Compute specific_yield_kwh_per_kw = annual_production / system_capacity.\n5. Estimate installed cost = 1200 USD per kWdc.\n6. Estimate LCOE (Levelized Cost of Energy) = cost / (annual_production_kwh * 25 years).\n7. Return valid JSON with:\n   - system_capacity_kwdc\n   - system_capacity_kwac\n   - annual_production_kwh\n   - specific_yield_kwh_per_kw\n   - estimated_cost_usd\n   - estimated_LCOE_usd_per_kWh\n   - bill_of_materials:\n       - modules: {\"quantity\": int, \"model\": str, \"power_w\": int}\n       - inverters: {\"quantity\": int, \"model\": str, \"capacity_kw\": int}\n       - racking: {\"type\": str, \"material\": str}\n       - bos: [list of other components]\n   - design_notes: list of 3\u20135 short insights about efficiency, assumptions, or shading.\nOutput only valid JSON.\n",
+  "raw_response": "{\n  \"system_capacity_kwdc\": 500,\n  \"system_capacity_kwac\": 600,\n  \"annual_production_kwh\": 65306.57146999824,\n  \"specific_yield_kwh_per_kw\": 130.61314294399648,\n  \"estimated_cost_usd\": 600000,\n  \"estimated_LCOE_usd_per_kWh\": 0.0004,\n  \"bill_of_materials\": {\n    \"modules\": {\n      \"quantity\": 1500,\n      \"model\": \"SolarMax 400W\",\n      \"power_w\": 400\n    },\n    \"inverters\": {\n      \"quantity\": 2,\n      \"model\": \"InverTech 300kW\",\n      \"capacity_kw\": 300\n    },\n    \"racking\": {\n      \"type\": \"fixed-tilt\",\n      \"material\": \"aluminum\"\n    },\n    \"bos\": [\n      \"cabling\",\n      \"disconnect switches\",\n      \"fuses\",\n      \"combiner boxes\",\n      \"monitoring equipment\"\n    ]\n  },\n  \"design_notes\": [\n    \"Assumed a standard rooftop installation with no shading.\",\n    \"AC/DC ratio of 1.2 was used for inverter sizing.\",\n    \"Cost estimation based on $1200 per kWdc installed.\",\n    \"LCOE calculated over a 25-year lifespan.\",\n    \"Specific yield indicates good performance for the given location.\"\n  ]\n}",
+  "parsed_output": {
+    "system_capacity_kwdc": 500,
+    "system_capacity_kwac": 600,
+    "annual_production_kwh": 65306.57146999824,
+    "specific_yield_kwh_per_kw": 130.61314294399648,
+    "estimated_cost_usd": 600000,
+    "estimated_LCOE_usd_per_kWh": 0.0004,
+    "bill_of_materials": {
+      "modules": {
+        "quantity": 1500,
+        "model": "SolarMax 400W",
+        "power_w": 400
+      },
+      "inverters": {
+        "quantity": 2,
+        "model": "InverTech 300kW",
+        "capacity_kw": 300
+      },
+      "racking": {
+        "type": "fixed-tilt",
+        "material": "aluminum"
+      },
+      "bos": [
+        "cabling",
+        "disconnect switches",
+        "fuses",
+        "combiner boxes",
+        "monitoring equipment"
+      ]
+    },
+    "design_notes": [
+      "Assumed a standard rooftop installation with no shading.",
+      "AC/DC ratio of 1.2 was used for inverter sizing.",
+      "Cost estimation based on $1200 per kWdc installed.",
+      "LCOE calculated over a 25-year lifespan.",
+      "Specific yield indicates good performance for the given location."
+    ],
+    "score": 80
+  }
+}

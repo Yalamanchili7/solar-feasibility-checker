@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-11-11T15:45:21.327716",
+  "address": "Miami, FL",
+  "system_prompt": "You are a renewable energy policy analyst. Given recent headlines, determine whether the local environment is favorable for new solar projects. Consider permitting support, community acceptance, and environmental policies.",
+  "user_prompt": "\nAddress: Miami, FL\n\nRecent Headlines:\n['No recent relevant solar or policy news found.']\n\nPlease:\n1. Summarize the policy and regulatory tone in 3\u20135 sentences.\n2. Identify up to 3 risks or red flags.\n3. Assign a favorability score (0\u2013100).\n4. Output your answer as JSON with keys: summary, risks, score, sentiment.\n",
+  "raw_response": "{\n  \"summary\": \"The lack of recent relevant solar or policy news in Miami, FL suggests a stable but potentially stagnant regulatory environment for solar projects. Without new initiatives or changes in policy, there may be limited momentum for advancing solar energy adoption. However, the absence of negative news indicates that existing policies may still be supportive of solar development.\",\n  \"risks\": [\n    \"Potential stagnation in policy advancements could hinder new project approvals.\",\n    \"Community engagement and acceptance may be low due to lack of recent outreach or initiatives.\",\n    \"Environmental policies may not be actively promoting renewable energy, leading to uncertainty.\"\n  ],\n  \"score\": 60,\n  \"sentiment\": \"neutral\"\n}",
+  "parsed_analysis": {
+    "summary": "The lack of recent relevant solar or policy news in Miami, FL suggests a stable but potentially stagnant regulatory environment for solar projects. Without new initiatives or changes in policy, there may be limited momentum for advancing solar energy adoption. However, the absence of negative news indicates that existing policies may still be supportive of solar development.",
+    "risks": [
+      "Potential stagnation in policy advancements could hinder new project approvals.",
+      "Community engagement and acceptance may be low due to lack of recent outreach or initiatives.",
+      "Environmental policies may not be actively promoting renewable energy, leading to uncertainty."
+    ],
+    "score": 60,
+    "sentiment": "neutral"
+  }
+}

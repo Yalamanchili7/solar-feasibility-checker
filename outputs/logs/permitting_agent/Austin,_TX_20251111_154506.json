@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-11-11T15:45:06.887584",
+  "address": "Austin, TX",
+  "system_prompt": "You are a solar permitting specialist. Given local permitting rules, fill out a simple permit form.",
+  "user_prompt": "\nAddress: Austin, TX\nRules:\n{\n  \"jurisdiction\": \"austin\",\n  \"building_permit\": true,\n  \"electrical_permit\": true,\n  \"fire_setback\": 18,\n  \"avg_review_days\": 10\n}\n\nRespond strictly in JSON with:\n  - permit_required\n  - fire_code_setback_inches\n  - average_review_days\n  - special_considerations\n",
+  "raw_response": "{\n  \"permit_required\": {\n    \"building_permit\": true,\n    \"electrical_permit\": true\n  },\n  \"fire_code_setback_inches\": 18,\n  \"average_review_days\": 10,\n  \"special_considerations\": []\n}",
+  "parsed_form": {
+    "permit_required": {
+      "building_permit": true,
+      "electrical_permit": true
+    },
+    "fire_code_setback_inches": 18,
+    "average_review_days": 10,
+    "special_considerations": [],
+    "score": 55,
+    "jurisdiction": "austin",
+    "friendly_notes": "austin typically requires building_permit, electrical_permit with an average review time of 10 days and a fire code setback of 18 inches."
+  }
+}

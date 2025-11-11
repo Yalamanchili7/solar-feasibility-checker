@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-11-11T15:25:01.097942",
+  "address": "Phoenix, AZ",
+  "system_prompt": "You are a renewable energy policy analyst. Given recent headlines, determine whether the local environment is favorable for new solar projects. Consider permitting support, community acceptance, and environmental policies.",
+  "user_prompt": "\nAddress: Phoenix, AZ\n\nRecent Headlines:\n['Pablo Ribeiro Dias Issues Urgent Call to Action with\\xa0New Book Climate Changed Just as Renewables Eclipse Coal in Global Power Production']\n\nPlease:\n1. Summarize the policy and regulatory tone in 3\u20135 sentences.\n2. Identify up to 3 risks or red flags.\n3. Assign a favorability score (0\u2013100).\n4. Output your answer as JSON with keys: summary, risks, score, sentiment.\n",
+  "raw_response": "```json\n{\n  \"summary\": \"The recent headlines indicate a growing urgency for climate action, suggesting that there is a heightened awareness and support for renewable energy initiatives, particularly solar power. The mention of renewables eclipsing coal in global power production reflects a positive trend towards cleaner energy sources. This context may foster a more favorable regulatory environment for solar projects in Phoenix, AZ, as policymakers and the community may be more inclined to support sustainable energy solutions.\",\n  \"risks\": [\n    \"Potential pushback from traditional energy sectors that may resist the transition to renewables.\",\n    \"Uncertainty regarding future regulatory changes that could impact solar project financing and incentives.\",\n    \"Community concerns about land use and environmental impacts of solar installations, which could lead to opposition.\"\n  ],\n  \"score\": 75,\n  \"sentiment\": \"positive\"\n}\n```",
+  "parsed_analysis": {
+    "summary": "```json\n{\n  \"summary\": \"The recent headlines indicate a growing urgency for climate action, suggesting that there is a heightened awareness and support for renewable energy initiatives, particularly solar power. The mention of renewables eclipsing coal in global power production reflects a positive ...",
+    "risks": [
+      "Malformed LLM JSON output"
+    ],
+    "score": 50,
+    "sentiment": "unknown"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-11-11T15:45:16.061830",
+  "address": "Austin, TX",
+  "system_prompt": "You are a senior solar design engineer. Given PVWatts outputs, produce a detailed system summary with production, cost, and a Bill of Materials. Respond strictly in JSON \u2014 no markdown or prose.",
+  "user_prompt": "\nAddress: Austin, TX\nLocation: lat=30.2711286, lon=-97.7436995\n\nPVWatts outputs:\n{\n  \"ac_monthly\": [\n    4063.288823773587,\n    4495.79719275625,\n    6040.665661030303,\n    5722.0640779938,\n    6261.853990025556,\n    6725.106807433653,\n    7644.848166149813,\n    7031.930534742684,\n    6602.29371696478,\n    5234.572393990206,\n    3947.928515589671,\n    4103.737413526687\n  ],\n  \"poa_monthly\": [\n    100.9119442753045,\n    114.053403468501,\n    156.144621010992,\n    151.3225011471172,\n    168.6018015258811,\n    183.1161670458488,\n    209.6928619617666,\n    191.7259570425029,\n    177.1237697302775,\n    138.4691978703494,\n    101.2286806030631,\n    103.8320503935527\n  ],\n  \"solrad_monthly\": [\n    3.255224008880791,\n    4.073335838160751,\n    5.036923258419096,\n    5.044083371570574,\n    5.438767791157455,\n    6.103872234861626,\n    6.764285869734406,\n    6.184708291693641,\n    5.904125657675916,\n    4.466748318398367,\n    3.374289353435437,\n    3.349420980437184\n  ],\n  \"dc_monthly\": [\n    4281.235839291159,\n    4726.104570387623,\n    6343.09794139147,\n    6012.330160519908,\n    6574.687079251807,\n    7052.555457892125,\n    8013.627072964287,\n    7369.560107556807,\n    6923.473090282948,\n    5497.400260434342,\n    4160.176318919314,\n    4322.984491278802\n  ],\n  \"ac_annual\": 67874.08729397705,\n  \"solrad_annual\": 4.916315414535437,\n  \"capacity_factor\": 15.4963669620952\n}\n\nInstructions:\n1. Assume a rooftop system of the given 'system_capacity' in kWdc.\n2. Use AC/DC ratio = 1.2 to compute kWac.\n3. Estimate annual production using 'ac_annual' or 'dc_annual'.\n4. Compute specific_yield_kwh_per_kw = annual_production / system_capacity.\n5. Estimate installed cost = 1200 USD per kWdc.\n6. Estimate LCOE (Levelized Cost of Energy) = cost / (annual_production_kwh * 25 years).\n7. Return valid JSON with:\n   - system_capacity_kwdc\n   - system_capacity_kwac\n   - annual_production_kwh\n   - specific_yield_kwh_per_kw\n   - estimated_cost_usd\n   - estimated_LCOE_usd_per_kWh\n   - bill_of_materials:\n       - modules: {\"quantity\": int, \"model\": str, \"power_w\": int}\n       - inverters: {\"quantity\": int, \"model\": str, \"capacity_kw\": int}\n       - racking: {\"type\": str, \"material\": str}\n       - bos: [list of other components]\n   - design_notes: list of 3\u20135 short insights about efficiency, assumptions, or shading.\nOutput only valid JSON.\n",
+  "raw_response": "{\n  \"system_capacity_kwdc\": 56.9,\n  \"system_capacity_kwac\": 68.28,\n  \"annual_production_kwh\": 67874.08729397705,\n  \"specific_yield_kwh_per_kw\": 1195.129,\n  \"estimated_cost_usd\": 68280,\n  \"estimated_LCOE_usd_per_kWh\": 0.045,\n  \"bill_of_materials\": {\n    \"modules\": {\n      \"quantity\": 142,\n      \"model\": \"Generic 400W\",\n      \"power_w\": 400\n    },\n    \"inverters\": {\n      \"quantity\": 2,\n      \"model\": \"Generic 35kW\",\n      \"capacity_kw\": 35\n    },\n    \"racking\": {\n      \"type\": \"Roof Mount\",\n      \"material\": \"Aluminum\"\n    },\n    \"bos\": [\n      \"Wiring\",\n      \"Disconnect Switch\",\n      \"Combiner Box\",\n      \"Monitoring System\",\n      \"Grounding Equipment\"\n    ]\n  },\n  \"design_notes\": [\n    \"Assumed a rooftop installation with optimal orientation.\",\n    \"AC/DC ratio of 1.2 used for inverter sizing.\",\n    \"Estimated costs based on typical market rates.\",\n    \"Production estimates based on PVWatts outputs for Austin, TX.\",\n    \"Consideration for shading and local regulations may affect performance.\"\n  ]\n}",
+  "parsed_output": {
+    "system_capacity_kwdc": 56.9,
+    "system_capacity_kwac": 68.28,
+    "annual_production_kwh": 67874.08729397705,
+    "specific_yield_kwh_per_kw": 1195.129,
+    "estimated_cost_usd": 68280,
+    "estimated_LCOE_usd_per_kWh": 0.045,
+    "bill_of_materials": {
+      "modules": {
+        "quantity": 142,
+        "model": "Generic 400W",
+        "power_w": 400
+      },
+      "inverters": {
+        "quantity": 2,
+        "model": "Generic 35kW",
+        "capacity_kw": 35
+      },
+      "racking": {
+        "type": "Roof Mount",
+        "material": "Aluminum"
+      },
+      "bos": [
+        "Wiring",
+        "Disconnect Switch",
+        "Combiner Box",
+        "Monitoring System",
+        "Grounding Equipment"
+      ]
+    },
+    "design_notes": [
+      "Assumed a rooftop installation with optimal orientation.",
+      "AC/DC ratio of 1.2 used for inverter sizing.",
+      "Estimated costs based on typical market rates.",
+      "Production estimates based on PVWatts outputs for Austin, TX.",
+      "Consideration for shading and local regulations may affect performance."
+    ],
+    "score": 100
+  }
+}

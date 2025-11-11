@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-11-11T15:45:36.276933",
+  "address": "Seattle, WA",
+  "system_prompt": "You are a renewable energy policy analyst. Given recent headlines, determine whether the local environment is favorable for new solar projects. Consider permitting support, community acceptance, and environmental policies.",
+  "user_prompt": "\nAddress: Seattle, WA\n\nRecent Headlines:\n['No recent relevant solar or policy news found.']\n\nPlease:\n1. Summarize the policy and regulatory tone in 3\u20135 sentences.\n2. Identify up to 3 risks or red flags.\n3. Assign a favorability score (0\u2013100).\n4. Output your answer as JSON with keys: summary, risks, score, sentiment.\n",
+  "raw_response": "{\n  \"summary\": \"The lack of recent relevant solar or policy news in Seattle suggests a stable but potentially stagnant environment for solar projects. Without new developments or changes in regulations, it may indicate that existing policies are being maintained rather than actively promoted. Community acceptance appears neutral, as no significant opposition or support has been reported recently.\",\n  \"risks\": [\n    \"Potential stagnation in policy development could hinder new solar initiatives.\",\n    \"Lack of community engagement may lead to unforeseen opposition in the future.\",\n    \"Absence of recent headlines might indicate a lack of momentum or interest in renewable energy projects.\"\n  ],\n  \"score\": 60,\n  \"sentiment\": \"neutral\"\n}",
+  "parsed_analysis": {
+    "summary": "The lack of recent relevant solar or policy news in Seattle suggests a stable but potentially stagnant environment for solar projects. Without new developments or changes in regulations, it may indicate that existing policies are being maintained rather than actively promoted. Community acceptance appears neutral, as no significant opposition or support has been reported recently.",
+    "risks": [
+      "Potential stagnation in policy development could hinder new solar initiatives.",
+      "Lack of community engagement may lead to unforeseen opposition in the future.",
+      "Absence of recent headlines might indicate a lack of momentum or interest in renewable energy projects."
+    ],
+    "score": 60,
+    "sentiment": "neutral"
+  }
+}

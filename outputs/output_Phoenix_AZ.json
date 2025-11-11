@@ -1,0 +1,197 @@
+{
+  "address": "Phoenix, AZ",
+  "research": {
+    "agent": "ResearchAgent",
+    "address": "Phoenix, AZ",
+    "news_headlines": [
+      "Pablo Ribeiro Dias Issues Urgent Call to Action with\u00a0New Book Climate Changed Just as Renewables Eclipse Coal in Global Power Production"
+    ],
+    "analysis": {
+      "summary": "The recent call to action by Pablo Ribeiro Dias highlights a growing urgency for climate action and the transition to renewable energy sources, particularly solar. This indicates a supportive regulatory environment for renewables as they are increasingly seen as a viable alternative to fossil fuels like coal. The emphasis on renewables suggests that local policies may be shifting towards facilitating solar project development, aligning with broader environmental goals.",
+      "risks": [
+        "Potential pushback from traditional energy sectors that may resist the transition to renewables.",
+        "Community concerns regarding land use and the visual impact of solar installations.",
+        "Uncertainty in permitting processes that could delay project timelines."
+      ],
+      "score": 75,
+      "sentiment": "positive"
+    }
+  },
+  "permitting": {
+    "agent": "PermittingAgent",
+    "address": "Phoenix, AZ",
+    "rules": {
+      "state": "AZ",
+      "jurisdiction": "Phoenix",
+      "building_permit": false,
+      "electrical_permit": true,
+      "fire_setback": 17,
+      "avg_review_days": 8
+    },
+    "permit_form": {
+      "permit_required": {
+        "building_permit": false,
+        "electrical_permit": true
+      },
+      "fire_code_setback_inches": 17,
+      "average_review_days": 8,
+      "special_considerations": [],
+      "score": 60,
+      "jurisdiction": "Phoenix",
+      "friendly_notes": "Phoenix typically requires building_permit, electrical_permit with an average review time of 8 days and a fire code setback of 17 inches."
+    },
+    "friendly_notes": "Phoenix typically requires building_permit, electrical_permit with an average review time of 8 days and a fire code setback of 17 inches."
+  },
+  "design": {
+    "agent": "DesignAgent",
+    "address": "Phoenix, AZ",
+    "pvwatts_raw": {
+      "inputs": {
+        "lat": "33.4484367",
+        "lon": "-112.074141",
+        "system_capacity": "50.0",
+        "azimuth": "180",
+        "tilt": "20",
+        "array_type": "1",
+        "module_type": "1",
+        "losses": "14",
+        "dataset": "tmy3"
+      },
+      "errors": [],
+      "warnings": [],
+      "version": "8.4.0",
+      "ssc_info": {
+        "version": 280,
+        "build": "Linux 64 bit GNU/C++ Oct 18 2023 07:13:03",
+        "module": "pvwattsv8"
+      },
+      "station_info": {
+        "lat": 33.45000076293945,
+        "lon": -111.9830017089844,
+        "elev": 337.0,
+        "tz": -7.0,
+        "location": "722780",
+        "city": "\"PHOENIX SKY HARBOR INTL AP\"",
+        "state": "AZ",
+        "solar_resource_file": "722780.csv",
+        "distance": 8417,
+        "weather_data_source": "NSRDB 1991-2005 Archive TMY3"
+      },
+      "outputs": {
+        "ac_monthly": [
+          5628.324571324524,
+          5767.478011890817,
+          7244.099646952668,
+          8446.051816621419,
+          8793.753808937578,
+          8458.667475592747,
+          8188.972543685054,
+          8151.432967542227,
+          7663.784633742899,
+          6885.759457250695,
+          6041.473708497742,
+          5541.562651030553
+        ],
+        "poa_monthly": [
+          143.7755823649996,
+          149.6998411303873,
+          191.4992128449595,
+          226.8463504635671,
+          240.5882045337054,
+          239.7774603989466,
+          231.3869105880425,
+          228.6844874468027,
+          213.7619981934454,
+          185.4827352574126,
+          156.7277354568336,
+          139.9564061145086
+        ],
+        "solrad_monthly": [
+          4.637922011774181,
+          5.346422897513831,
+          6.177393962740631,
+          7.561545015452236,
+          7.760909823667915,
+          7.99258201329822,
+          7.464093889936856,
+          7.376918949896861,
+          7.125399939781514,
+          5.983314040561696,
+          5.224257848561119,
+          4.514722777887376
+        ],
+        "dc_monthly": [
+          5899.443509979402,
+          6045.119385860264,
+          7584.752164384132,
+          8840.030719292634,
+          9209.941390483988,
+          8861.853025745257,
+          8581.01036685434,
+          8533.7784488866,
+          8025.262611830432,
+          7213.677500751305,
+          6331.755620752693,
+          5806.154202819715
+        ],
+        "ac_annual": 86811.36129306874,
+        "solrad_annual": 6.430456930922703,
+        "capacity_factor": 19.81994550070072
+      }
+    },
+    "design": {
+      "system_capacity_kwdc": 72000,
+      "system_capacity_kwac": 86400,
+      "annual_production_kwh": 86811.36129306874,
+      "specific_yield_kwh_per_kw": 1.202,
+      "estimated_cost_usd": 86400,
+      "estimated_LCOE_usd_per_kWh": 0.0345,
+      "bill_of_materials": {
+        "modules": {
+          "quantity": 240,
+          "model": "SunPower SPR-X22-360",
+          "power_w": 360
+        },
+        "inverters": {
+          "quantity": 6,
+          "model": "SolarEdge SE11400H",
+          "capacity_kw": 11.4
+        },
+        "racking": {
+          "type": "roof mount",
+          "material": "aluminum"
+        },
+        "bos": [
+          "DC/AC disconnects",
+          "fuse boxes",
+          "wiring",
+          "combiner boxes",
+          "monitoring system"
+        ]
+      },
+      "design_notes": [
+        "Assumed a rooftop installation with optimal orientation.",
+        "AC/DC ratio of 1.2 used for inverter sizing.",
+        "Estimated costs based on current market rates.",
+        "Production estimates are based on PVWatts outputs.",
+        "Consider potential shading effects from nearby structures."
+      ],
+      "score": 80
+    }
+  },
+  "final_decision": {
+    "go_no_go": "GO",
+    "score": 72,
+    "component_scores": {
+      "research": 75,
+      "permitting": 60,
+      "design": 80
+    },
+    "justification": [
+      "Research score 75 reflects local policy sentiment and renewable support.",
+      "Permitting score 60 accounts for jurisdiction requirements and review timelines.",
+      "Design score 80 measures technical yield, cost efficiency, and system robustness.",
+      "Weighted overall feasibility score is 72, resulting in a 'GO' decision."
+    ]
+  }
+}

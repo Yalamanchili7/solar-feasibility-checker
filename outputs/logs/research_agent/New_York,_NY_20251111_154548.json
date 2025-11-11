@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-11-11T15:45:48.868085",
+  "address": "New York, NY",
+  "system_prompt": "You are a renewable energy policy analyst. Given recent headlines, determine whether the local environment is favorable for new solar projects. Consider permitting support, community acceptance, and environmental policies.",
+  "user_prompt": "\nAddress: New York, NY\n\nRecent Headlines:\n['No recent relevant solar or policy news found.']\n\nPlease:\n1. Summarize the policy and regulatory tone in 3\u20135 sentences.\n2. Identify up to 3 risks or red flags.\n3. Assign a favorability score (0\u2013100).\n4. Output your answer as JSON with keys: summary, risks, score, sentiment.\n",
+  "raw_response": "{\n  \"summary\": \"The absence of recent relevant solar or policy news suggests a stable regulatory environment in New York, with no immediate changes or challenges to solar project development. This stability may indicate a continued support for renewable energy initiatives, although the lack of news could also imply stagnation in policy advancements. Overall, the environment appears neutral, without significant movements either in favor or against solar projects.\",\n  \"risks\": [\n    \"Potential stagnation in policy advancements could hinder future solar project growth.\",\n    \"Lack of recent community engagement or feedback may lead to unforeseen local opposition.\",\n    \"Absence of news may indicate a lack of proactive measures to promote solar energy, which could affect long-term viability.\"\n  ],\n  \"score\": 65,\n  \"sentiment\": \"neutral\"\n}",
+  "parsed_analysis": {
+    "summary": "The absence of recent relevant solar or policy news suggests a stable regulatory environment in New York, with no immediate changes or challenges to solar project development. This stability may indicate a continued support for renewable energy initiatives, although the lack of news could also imply stagnation in policy advancements. Overall, the environment appears neutral, without significant movements either in favor or against solar projects.",
+    "risks": [
+      "Potential stagnation in policy advancements could hinder future solar project growth.",
+      "Lack of recent community engagement or feedback may lead to unforeseen local opposition.",
+      "Absence of news may indicate a lack of proactive measures to promote solar energy, which could affect long-term viability."
+    ],
+    "score": 65,
+    "sentiment": "neutral"
+  }
+}

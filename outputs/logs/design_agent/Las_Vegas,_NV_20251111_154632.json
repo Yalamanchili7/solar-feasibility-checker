@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-11-11T15:46:32.584365",
+  "address": "Las Vegas, NV",
+  "system_prompt": "You are a senior solar design engineer. Given PVWatts outputs, produce a detailed system summary with production, cost, and a Bill of Materials. Respond strictly in JSON \u2014 no markdown or prose.",
+  "user_prompt": "\nAddress: Las Vegas, NV\nLocation: lat=36.1674263, lon=-115.1484131\n\nPVWatts outputs:\n{\n  \"ac_monthly\": [\n    5275.966070405411,\n    5651.671937912339,\n    7244.715846201352,\n    8548.741029129178,\n    8857.752828773415,\n    8583.199551901134,\n    8538.94717889637,\n    8460.403966254691,\n    7760.729108184445,\n    6990.723616438333,\n    5836.039873613198,\n    5226.389625806597\n  ],\n  \"poa_monthly\": [\n    131.5303763353463,\n    141.5439580577905,\n    183.8837457699925,\n    223.3986082263814,\n    237.2815231788405,\n    235.3263035431085,\n    239.4441315637355,\n    234.4177590241187,\n    213.1876261807812,\n    183.6088619117059,\n    147.9892163474836,\n    130.5996214710495\n  ],\n  \"solrad_monthly\": [\n    4.242915365656334,\n    5.055141359206806,\n    5.931733734515886,\n    7.446620274212714,\n    7.654242683188403,\n    7.844210118103618,\n    7.724004243991469,\n    7.561863194326409,\n    7.106254206026039,\n    5.922866513280836,\n    4.932973878249452,\n    4.212891015195144\n  ],\n  \"dc_monthly\": [\n    5532.230059279942,\n    5923.780553135998,\n    7597.827210199182,\n    8964.242030544065,\n    9279.801273842944,\n    8987.808583987871,\n    8943.443077393256,\n    8859.92894725709,\n    8125.979129648277,\n    7318.655183354005,\n    6118.231939063622,\n    5484.677784577892\n  ],\n  \"ac_annual\": 86975.28063351664,\n  \"solrad_annual\": 6.302976382162758,\n  \"capacity_factor\": 19.85737000765211\n}\n\nInstructions:\n1. Assume a rooftop system of the given 'system_capacity' in kWdc.\n2. Use AC/DC ratio = 1.2 to compute kWac.\n3. Estimate annual production using 'ac_annual' or 'dc_annual'.\n4. Compute specific_yield_kwh_per_kw = annual_production / system_capacity.\n5. Estimate installed cost = 1200 USD per kWdc.\n6. Estimate LCOE (Levelized Cost of Energy) = cost / (annual_production_kwh * 25 years).\n7. Return valid JSON with:\n   - system_capacity_kwdc\n   - system_capacity_kwac\n   - annual_production_kwh\n   - specific_yield_kwh_per_kw\n   - estimated_cost_usd\n   - estimated_LCOE_usd_per_kWh\n   - bill_of_materials:\n       - modules: {\"quantity\": int, \"model\": str, \"power_w\": int}\n       - inverters: {\"quantity\": int, \"model\": str, \"capacity_kw\": int}\n       - racking: {\"type\": str, \"material\": str}\n       - bos: [list of other components]\n   - design_notes: list of 3\u20135 short insights about efficiency, assumptions, or shading.\nOutput only valid JSON.\n",
+  "raw_response": "{\n  \"system_capacity_kwdc\": 100,\n  \"system_capacity_kwac\": 120,\n  \"annual_production_kwh\": 86975.28063351664,\n  \"specific_yield_kwh_per_kw\": 869.7528063351664,\n  \"estimated_cost_usd\": 120000,\n  \"estimated_LCOE_usd_per_kWh\": 0.048,\n  \"bill_of_materials\": {\n    \"modules\": {\n      \"quantity\": 250,\n      \"model\": \"SunPower X-Series\",\n      \"power_w\": 400\n    },\n    \"inverters\": {\n      \"quantity\": 2,\n      \"model\": \"SolarEdge SE11400H\",\n      \"capacity_kw\": 60\n    },\n    \"racking\": {\n      \"type\": \"roof mount\",\n      \"material\": \"aluminum\"\n    },\n    \"bos\": [\n      \"DC/AC disconnect switch\",\n      \"fuse box\",\n      \"cabling\",\n      \"grounding equipment\",\n      \"monitoring system\"\n    ]\n  },\n  \"design_notes\": [\n    \"Assumed a rooftop installation with no shading.\",\n    \"AC/DC ratio of 1.2 used for inverter sizing.\",\n    \"Estimated cost based on $1200 per kWdc installed.\",\n    \"LCOE calculated over a 25-year lifespan.\",\n    \"Specific yield indicates good performance for the location.\"\n  ]\n}",
+  "parsed_output": {
+    "system_capacity_kwdc": 100,
+    "system_capacity_kwac": 120,
+    "annual_production_kwh": 86975.28063351664,
+    "specific_yield_kwh_per_kw": 869.7528063351664,
+    "estimated_cost_usd": 120000,
+    "estimated_LCOE_usd_per_kWh": 0.048,
+    "bill_of_materials": {
+      "modules": {
+        "quantity": 250,
+        "model": "SunPower X-Series",
+        "power_w": 400
+      },
+      "inverters": {
+        "quantity": 2,
+        "model": "SolarEdge SE11400H",
+        "capacity_kw": 60
+      },
+      "racking": {
+        "type": "roof mount",
+        "material": "aluminum"
+      },
+      "bos": [
+        "DC/AC disconnect switch",
+        "fuse box",
+        "cabling",
+        "grounding equipment",
+        "monitoring system"
+      ]
+    },
+    "design_notes": [
+      "Assumed a rooftop installation with no shading.",
+      "AC/DC ratio of 1.2 used for inverter sizing.",
+      "Estimated cost based on $1200 per kWdc installed.",
+      "LCOE calculated over a 25-year lifespan.",
+      "Specific yield indicates good performance for the location."
+    ],
+    "score": 80
+  }
+}

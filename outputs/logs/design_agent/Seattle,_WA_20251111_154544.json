@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-11-11T15:45:44.048470",
+  "address": "Seattle, WA",
+  "system_prompt": "You are a senior solar design engineer. Given PVWatts outputs, produce a detailed system summary with production, cost, and a Bill of Materials. Respond strictly in JSON \u2014 no markdown or prose.",
+  "user_prompt": "\nAddress: Seattle, WA\nLocation: lat=47.6038321, lon=-122.330062\n\nPVWatts outputs:\n{\n  \"ac_monthly\": [\n    1509.008041227797,\n    3427.143737212027,\n    4001.341008478787,\n    5645.838275672561,\n    6391.293636089935,\n    5869.265590071427,\n    7586.457883060598,\n    6787.072358695441,\n    6201.991834363206,\n    3084.241264427852,\n    1455.677230604055,\n    1321.053329339051\n  ],\n  \"poa_monthly\": [\n    37.82855997323499,\n    84.09032620731074,\n    100.2601522191622,\n    143.3275448050246,\n    163.6989172199974,\n    153.293437418232,\n    200.237050621282,\n    177.2281165670736,\n    159.3835613177083,\n    78.16385220257607,\n    37.02452734483747,\n    32.89401702067109\n  ],\n  \"solrad_monthly\": [\n    1.220276128168871,\n    3.003225935975383,\n    3.23419845868265,\n    4.777584826834152,\n    5.280610232903141,\n    5.109781247274399,\n    6.45925969746071,\n    5.717036018292697,\n    5.312785377256943,\n    2.521414587179873,\n    1.234150911494582,\n    1.061097323247454\n  ],\n  \"dc_monthly\": [\n    1618.145578203043,\n    3609.072616611315,\n    4218.572695237021,\n    5932.258835058232,\n    6717.706073089794,\n    6173.957866250691,\n    7956.601411373723,\n    7120.933805101783,\n    6502.462820770536,\n    3261.705894205101,\n    1563.584447812748,\n    1414.316473032565\n  ],\n  \"ac_annual\": 53280.38418924288,\n  \"solrad_annual\": 3.744285062064238,\n  \"capacity_factor\": 12.16447127608281\n}\n\nInstructions:\n1. Assume a rooftop system of the given 'system_capacity' in kWdc.\n2. Use AC/DC ratio = 1.2 to compute kWac.\n3. Estimate annual production using 'ac_annual' or 'dc_annual'.\n4. Compute specific_yield_kwh_per_kw = annual_production / system_capacity.\n5. Estimate installed cost = 1200 USD per kWdc.\n6. Estimate LCOE (Levelized Cost of Energy) = cost / (annual_production_kwh * 25 years).\n7. Return valid JSON with:\n   - system_capacity_kwdc\n   - system_capacity_kwac\n   - annual_production_kwh\n   - specific_yield_kwh_per_kw\n   - estimated_cost_usd\n   - estimated_LCOE_usd_per_kWh\n   - bill_of_materials:\n       - modules: {\"quantity\": int, \"model\": str, \"power_w\": int}\n       - inverters: {\"quantity\": int, \"model\": str, \"capacity_kw\": int}\n       - racking: {\"type\": str, \"material\": str}\n       - bos: [list of other components]\n   - design_notes: list of 3\u20135 short insights about efficiency, assumptions, or shading.\nOutput only valid JSON.\n",
+  "raw_response": "{\n  \"system_capacity_kwdc\": 44.4,\n  \"system_capacity_kwac\": 53.28,\n  \"annual_production_kwh\": 53280.38418924288,\n  \"specific_yield_kwh_per_kw\": 1200.0,\n  \"estimated_cost_usd\": 53280.46000000001,\n  \"estimated_LCOE_usd_per_kWh\": 0.042624364800000004,\n  \"bill_of_materials\": {\n    \"modules\": {\n      \"quantity\": 148,\n      \"model\": \"Generic 300W Module\",\n      \"power_w\": 300\n    },\n    \"inverters\": {\n      \"quantity\": 2,\n      \"model\": \"Generic 25kW Inverter\",\n      \"capacity_kw\": 25\n    },\n    \"racking\": {\n      \"type\": \"Roof Mount\",\n      \"material\": \"Aluminum\"\n    },\n    \"bos\": [\n      \"DC/AC Disconnects\",\n      \"Combiner Box\",\n      \"Wiring and Conduits\",\n      \"Grounding Equipment\",\n      \"Monitoring System\"\n    ]\n  },\n  \"design_notes\": [\n    \"System assumes optimal tilt and orientation for maximum sun exposure.\",\n    \"AC/DC ratio of 1.2 is used to account for system losses.\",\n    \"Cost estimation is based on average market rates.\",\n    \"Specific yield indicates a well-performing system in the given location.\",\n    \"Shading analysis not included; actual performance may vary.\"\n  ]\n}",
+  "parsed_output": {
+    "system_capacity_kwdc": 44.4,
+    "system_capacity_kwac": 53.28,
+    "annual_production_kwh": 53280.38418924288,
+    "specific_yield_kwh_per_kw": 1200.0,
+    "estimated_cost_usd": 53280.46000000001,
+    "estimated_LCOE_usd_per_kWh": 0.0426243648,
+    "bill_of_materials": {
+      "modules": {
+        "quantity": 148,
+        "model": "Generic 300W Module",
+        "power_w": 300
+      },
+      "inverters": {
+        "quantity": 2,
+        "model": "Generic 25kW Inverter",
+        "capacity_kw": 25
+      },
+      "racking": {
+        "type": "Roof Mount",
+        "material": "Aluminum"
+      },
+      "bos": [
+        "DC/AC Disconnects",
+        "Combiner Box",
+        "Wiring and Conduits",
+        "Grounding Equipment",
+        "Monitoring System"
+      ]
+    },
+    "design_notes": [
+      "System assumes optimal tilt and orientation for maximum sun exposure.",
+      "AC/DC ratio of 1.2 is used to account for system losses.",
+      "Cost estimation is based on average market rates.",
+      "Specific yield indicates a well-performing system in the given location.",
+      "Shading analysis not included; actual performance may vary."
+    ],
+    "score": 100
+  }
+}
