@@ -36,18 +36,23 @@ solar-feasibility-checker/
 │   │   └── coordinator.py
 │   ├── utils/
 │   │   ├── llm_client.py
-│   │   ├── config.py
-│   │   └── geocode.py
+│   │   └── config.py
 │   └── data/
 │       └── permitting_rules.csv
 ├── outputs/
-│   ├── logs/
-│   │   ├── research_agent/
-│   │   ├── permitting_agent/
-│   │   └── design_agent/
-│   └── output_<city>_<timestamp>.json
+│   └── logs/
+├── web/
+│   └── app.py
+├── tests/
+│   └── test_smoke.py
 ├── cli.py
-└── README.md
+├── requirements.txt
+├── .env.example
+├── README.md
+└── .github/
+    └── workflows/
+        └── ci.yml
+
 ```
 
 ---
