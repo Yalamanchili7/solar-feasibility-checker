@@ -101,10 +101,10 @@ def main():
 
     print(f"\n🌞 Running Solar Feasibility Analysis for: {address}\n")
 
-    llm = LLMClient()
-    orchestrator = Orchestrator(llm)
-
     try:
+        # ✅ Gracefully handle missing or invalid API keys
+        llm = LLMClient()
+        orchestrator = Orchestrator(llm)
         result = orchestrator.evaluate_address(address)
 
         # --- Research Agent ---
@@ -136,9 +136,8 @@ def main():
                 json.dump(result, f, indent=2)
             print(f"\n💾 Results saved to: {file_name}")
 
+    except EnvironmentError as e:
+        print(f"⚠️ Missing or invalid API key: {e}")
     except Exception as e:
         print(f"❌ Error running evaluation: {e}")
 
-
-if __name__ == "__main__":
-    main()

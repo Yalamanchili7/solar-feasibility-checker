@@ -1,5 +1,3 @@
-# app/agents/permitting_agent.py
-
 import os
 import json
 import pandas as pd
@@ -23,7 +21,6 @@ class PermittingAgent:
         rules_path = os.path.abspath(rules_path)
         print(f"📂 Loading permitting rules from: {rules_path}")
 
-        # --- Load safely or fallback to an empty DataFrame ---
         if not os.path.exists(rules_path):
             print("⚠️ permitting_rules.csv not found — using empty fallback DataFrame.")
             self.rules = pd.DataFrame(
@@ -43,7 +40,6 @@ class PermittingAgent:
     # STEP 1: Match location to rule set
     # -----------------------------
     def get_rules_for_location(self, address: str):
-        """Match a given address to jurisdiction rules in the CSV."""
         city = address.split(",")[0].strip().lower()
 
         if "jurisdiction" not in self.rules.columns:
@@ -61,7 +57,6 @@ class PermittingAgent:
         return rules
 
     def default_rules(self, city):
-        """Fallback defaults when no rule found."""
         return {
             "jurisdiction": city,
             "building_permit": True,
@@ -74,7 +69,6 @@ class PermittingAgent:
     # STEP 2: Generate permit form with LLM
     # -----------------------------
     def generate_permit_form(self, address: str, rules: dict):
-        """Use GPT to generate a structured permit form."""
         system_prompt = (
             "You are a solar permitting specialist. "
             "Given local permitting rules, fill out a simple permit form."
@@ -94,7 +88,6 @@ Respond strictly in JSON with:
 
         raw_response = self.llm.chat(system_prompt, user_prompt)
 
-        # --- JSON safety handling ---
         try:
             form = json.loads(raw_response)
         except json.JSONDecodeError:
@@ -113,6 +106,7 @@ Respond strictly in JSON with:
             }
 
         # --- Normalize and enrich ---
+        form = self._normalize_permit_fields(form)   # 🔧 NEW LINE
         form.setdefault("permit_required", ["electrical"])
         form.setdefault("fire_code_setback_inches", 18)
         form.setdefault("average_review_days", 10)
@@ -120,7 +114,6 @@ Respond strictly in JSON with:
         form["score"] = self.compute_permit_score(form)
         form["jurisdiction"] = rules.get("jurisdiction", "Unknown")
 
-        # --- Add friendly human-readable summary ---
         permits = ", ".join(form.get("permit_required", []))
         form["friendly_notes"] = (
             f"{rules.get('jurisdiction', 'This jurisdiction')} typically requires "
@@ -129,7 +122,6 @@ Respond strictly in JSON with:
             f"fire code setback of {form.get('fire_code_setback_inches', 'N/A')} inches."
         )
 
-        # --- Log full context for traceability ---
         log_path = os.path.join(
             LOG_DIR, f"{address.replace(' ', '_')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         )
@@ -153,12 +145,10 @@ Respond strictly in JSON with:
     # STEP 3: Compute permit friendliness score
     # -----------------------------
     def compute_permit_score(self, form: dict) -> int:
-        """Compute friendliness score using weighted penalties."""
         days = form.get("average_review_days", 10)
         required = len(form.get("permit_required", []))
         setback = form.get("fire_code_setback_inches", 18)
 
-        # Weighted scoring formula
         score = 100 - (days * 2.5) - (required * 10) - (max(0, setback - 20) * 0.5)
         return max(0, min(100, int(score)))
 
@@ -166,7 +156,6 @@ Respond strictly in JSON with:
     # STEP 4: Full pipeline
     # -----------------------------
     def run(self, address: str):
-        """Run permitting evaluation for a site."""
         print(f"🏗️ Running PermittingAgent for: {address}")
 
         try:
@@ -188,3 +177,16 @@ Respond strictly in JSON with:
             "permit_form": permit_form,
             "friendly_notes": permit_form.get("friendly_notes", "")
         }
+
+    # -----------------------------
+    # STEP 5: Normalize permit field 
+    # -----------------------------
+    def _normalize_permit_fields(self, form: dict) -> dict:
+        """Ensure permit_required is always a list for consistent CLI output."""
+        permits = form.get("permit_required", [])
+        if isinstance(permits, str):
+            permits = [p.strip() for p in permits.split(",") if p.strip()]
+        elif not isinstance(permits, list):
+            permits = [str(permits)]
+        form["permit_required"] = permits
+        return form
