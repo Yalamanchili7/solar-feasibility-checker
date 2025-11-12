@@ -7,11 +7,11 @@
       "Pablo Ribeiro Dias Issues Urgent Call to Action with\u00a0New Book Climate Changed Just as Renewables Eclipse Coal in Global Power Production"
     ],
     "analysis": {
-      "summary": "The recent call to action by Pablo Ribeiro Dias highlights a growing urgency for climate action and the transition to renewable energy sources, particularly solar. This indicates a supportive regulatory environment for renewables as they are increasingly seen as a viable alternative to fossil fuels like coal. The emphasis on renewables suggests that local policies may be shifting towards facilitating solar project development, aligning with broader environmental goals.",
+      "summary": "The recent call to action by Pablo Ribeiro Dias highlights an increasing urgency to address climate change, suggesting a supportive environment for renewable energy initiatives, particularly solar projects. The mention of renewables eclipsing coal in global power production indicates a shift in energy policy favoring cleaner alternatives. This trend may encourage local governments in Phoenix, AZ, to streamline permitting processes and enhance community acceptance of solar energy projects.",
       "risks": [
-        "Potential pushback from traditional energy sectors that may resist the transition to renewables.",
+        "Potential backlash from fossil fuel interests that may lobby against solar initiatives.",
         "Community concerns regarding land use and the visual impact of solar installations.",
-        "Uncertainty in permitting processes that could delay project timelines."
+        "Uncertainty in long-term funding and incentives for solar projects due to changing political landscapes."
       ],
       "score": 75,
       "sentiment": "positive"
@@ -143,38 +143,38 @@
       "system_capacity_kwdc": 72000,
       "system_capacity_kwac": 86400,
       "annual_production_kwh": 86811.36129306874,
-      "specific_yield_kwh_per_kw": 1.202,
+      "specific_yield_kwh_per_kw": 1.204,
       "estimated_cost_usd": 86400,
       "estimated_LCOE_usd_per_kWh": 0.0345,
       "bill_of_materials": {
         "modules": {
           "quantity": 240,
-          "model": "SunPower SPR-X22-360",
-          "power_w": 360
+          "model": "Generic 300W Module",
+          "power_w": 300
         },
         "inverters": {
           "quantity": 6,
-          "model": "SolarEdge SE11400H",
-          "capacity_kw": 11.4
+          "model": "Generic 15kW Inverter",
+          "capacity_kw": 15
         },
         "racking": {
-          "type": "roof mount",
-          "material": "aluminum"
+          "type": "Roof Mount",
+          "material": "Aluminum"
         },
         "bos": [
-          "DC/AC disconnects",
-          "fuse boxes",
-          "wiring",
-          "combiner boxes",
-          "monitoring system"
+          "DC Disconnect",
+          "AC Disconnect",
+          "Combiner Box",
+          "Wiring and Conduit",
+          "Monitoring System"
         ]
       },
       "design_notes": [
         "Assumed a rooftop installation with optimal orientation.",
         "AC/DC ratio of 1.2 used for inverter sizing.",
-        "Estimated costs based on current market rates.",
-        "Production estimates are based on PVWatts outputs.",
-        "Consider potential shading effects from nearby structures."
+        "Cost estimate based on $1200 per kWdc installed.",
+        "LCOE calculated over a 25-year lifespan.",
+        "Specific yield indicates good performance for the location."
       ],
       "score": 80
     }

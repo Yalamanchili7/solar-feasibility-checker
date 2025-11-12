@@ -1,4 +1,5 @@
 import re
+import os
 import json
 from openai import OpenAI
 from app.utils.config import OPENAI_API_KEY
@@ -6,7 +7,12 @@ from app.utils.config import OPENAI_API_KEY
 
 class LLMClient:
     def __init__(self, model="gpt-4o-mini"):
-        self.client = OpenAI(api_key=OPENAI_API_KEY)
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            raise EnvironmentError(
+                "❌ Missing OPENAI_API_KEY. Please set it in your .env file or GitHub Secrets."
+            )
+        self.client = OpenAI(api_key=api_key)
         self.model = model
 
     def chat(self, system_prompt, user_prompt):

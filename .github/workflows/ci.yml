@@ -28,5 +28,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           NREL_API_KEY: ${{ secrets.NREL_API_KEY }}
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
-          PYTHONPATH: .
-        run: pytest -q
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          echo "PYTHONPATH=$PYTHONPATH"
+          pytest -q
