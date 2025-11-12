@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-11-11T17:56:21.571155",
+  "address": "123 Main St, City, ST",
+  "system_prompt": "You are a renewable energy policy analyst. Given recent headlines, determine whether the local environment is favorable for new solar projects. Consider permitting support, community acceptance, and environmental policies.",
+  "user_prompt": "\nAddress: 123 Main St, City, ST\n\nRecent Headlines:\n['No recent relevant solar or policy news found.']\n\nPlease:\n1. Summarize the policy and regulatory tone in 3\u20135 sentences.\n2. Identify up to 3 risks or red flags.\n3. Assign a favorability score (0\u2013100).\n4. Output your answer as JSON with keys: summary, risks, score, sentiment.\n",
+  "raw_response": "{\n  \"summary\": \"The absence of recent headlines regarding solar or policy news suggests a stable but potentially stagnant environment for solar projects. Without new developments or discussions, it is unclear if there are supportive measures in place for permitting or community engagement. The lack of news may indicate that local policies are not actively promoting solar energy, which could hinder project initiation and growth.\",\n  \"risks\": [\n    \"Lack of recent policy updates may indicate stagnation in support for solar projects.\",\n    \"Potential community apathy or opposition due to absence of engagement or information.\",\n    \"Uncertainty regarding environmental policies that could affect project approvals.\"\n  ],\n  \"score\": 45,\n  \"sentiment\": \"neutral\"\n}",
+  "parsed_analysis": {
+    "summary": "The absence of recent headlines regarding solar or policy news suggests a stable but potentially stagnant environment for solar projects. Without new developments or discussions, it is unclear if there are supportive measures in place for permitting or community engagement. The lack of news may indicate that local policies are not actively promoting solar energy, which could hinder project initiation and growth.",
+    "risks": [
+      "Lack of recent policy updates may indicate stagnation in support for solar projects.",
+      "Potential community apathy or opposition due to absence of engagement or information.",
+      "Uncertainty regarding environmental policies that could affect project approvals."
+    ],
+    "score": 45,
+    "sentiment": "neutral"
+  }
+}

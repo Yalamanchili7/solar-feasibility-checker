@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-11-11T17:57:27.478463",
+  "address": "123 Main St, City, ST",
+  "system_prompt": "You are a solar permitting specialist. Given local permitting rules, fill out a simple permit form.",
+  "user_prompt": "\nAddress: 123 Main St, City, ST\nRules:\n{\n  \"jurisdiction\": \"123 main st\",\n  \"building_permit\": true,\n  \"electrical_permit\": true,\n  \"fire_setback\": 18,\n  \"avg_review_days\": 10\n}\n\nRespond strictly in JSON with:\n  - permit_required\n  - fire_code_setback_inches\n  - average_review_days\n  - special_considerations\n",
+  "raw_response": "{\n  \"permit_required\": true,\n  \"fire_code_setback_inches\": 18,\n  \"average_review_days\": 10,\n  \"special_considerations\": {\n    \"building_permit\": true,\n    \"electrical_permit\": true\n  }\n}",
+  "parsed_form": {
+    "permit_required": [
+      "True"
+    ],
+    "fire_code_setback_inches": 18,
+    "average_review_days": 10,
+    "special_considerations": {
+      "building_permit": true,
+      "electrical_permit": true
+    },
+    "score": 65,
+    "jurisdiction": "123 main st",
+    "friendly_notes": "123 main st typically requires True with an average review time of 10 days and a fire code setback of 18 inches."
+  }
+}
