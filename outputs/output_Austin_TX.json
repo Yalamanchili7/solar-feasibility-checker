@@ -1,0 +1,196 @@
+{
+  "address": "Austin, TX",
+  "research": {
+    "agent": "ResearchAgent",
+    "address": "Austin, TX",
+    "news_headlines": [
+      "No recent relevant solar or policy news found."
+    ],
+    "analysis": {
+      "summary": "The lack of recent headlines regarding solar or policy news in Austin, TX suggests a stable but potentially stagnant regulatory environment for solar projects. Without new developments or discussions, it may indicate a lack of urgency or support for advancing solar initiatives. However, the absence of negative news could also imply that existing policies remain favorable for solar energy expansion.",
+      "risks": [
+        "Potential stagnation in policy development could hinder future solar project approvals.",
+        "Community engagement may be lacking, leading to possible resistance if new projects are proposed.",
+        "Uncertainty in long-term environmental policies could impact investment decisions."
+      ],
+      "score": 65,
+      "sentiment": "neutral"
+    }
+  },
+  "permitting": {
+    "agent": "PermittingAgent",
+    "address": "Austin, TX",
+    "rules": {
+      "jurisdiction": "austin",
+      "building_permit": true,
+      "electrical_permit": true,
+      "fire_setback": 18,
+      "avg_review_days": 10
+    },
+    "permit_form": {
+      "permit_required": {
+        "building_permit": true,
+        "electrical_permit": true
+      },
+      "fire_code_setback_inches": 18,
+      "average_review_days": 10,
+      "special_considerations": [],
+      "score": 55,
+      "jurisdiction": "austin",
+      "friendly_notes": "austin typically requires building_permit, electrical_permit with an average review time of 10 days and a fire code setback of 18 inches."
+    },
+    "friendly_notes": "austin typically requires building_permit, electrical_permit with an average review time of 10 days and a fire code setback of 18 inches."
+  },
+  "design": {
+    "agent": "DesignAgent",
+    "address": "Austin, TX",
+    "pvwatts_raw": {
+      "inputs": {
+        "lat": "30.2711286",
+        "lon": "-97.7436995",
+        "system_capacity": "50.0",
+        "azimuth": "180",
+        "tilt": "20",
+        "array_type": "1",
+        "module_type": "1",
+        "losses": "14",
+        "dataset": "tmy3"
+      },
+      "errors": [],
+      "warnings": [],
+      "version": "8.4.0",
+      "ssc_info": {
+        "version": 280,
+        "build": "Linux 64 bit GNU/C++ Oct 18 2023 07:13:03",
+        "module": "pvwattsv8"
+      },
+      "station_info": {
+        "lat": 30.29000091552734,
+        "lon": -97.73999786376953,
+        "elev": 213.0,
+        "tz": -6.0,
+        "location": "722540",
+        "city": "\"AUSTIN MUELLER MUNICIPAL AP [UT]\"",
+        "state": "TX",
+        "solar_resource_file": "722540.csv",
+        "distance": 2125,
+        "weather_data_source": "NSRDB 1991-2005 Archive TMY3"
+      },
+      "outputs": {
+        "ac_monthly": [
+          4063.288823773587,
+          4495.79719275625,
+          6040.665661030303,
+          5722.0640779938,
+          6261.853990025556,
+          6725.106807433653,
+          7644.848166149813,
+          7031.930534742684,
+          6602.29371696478,
+          5234.572393990206,
+          3947.928515589671,
+          4103.737413526687
+        ],
+        "poa_monthly": [
+          100.9119442753045,
+          114.053403468501,
+          156.144621010992,
+          151.3225011471172,
+          168.6018015258811,
+          183.1161670458488,
+          209.6928619617666,
+          191.7259570425029,
+          177.1237697302775,
+          138.4691978703494,
+          101.2286806030631,
+          103.8320503935527
+        ],
+        "solrad_monthly": [
+          3.255224008880791,
+          4.073335838160751,
+          5.036923258419096,
+          5.044083371570574,
+          5.438767791157455,
+          6.103872234861626,
+          6.764285869734406,
+          6.184708291693641,
+          5.904125657675916,
+          4.466748318398367,
+          3.374289353435437,
+          3.349420980437184
+        ],
+        "dc_monthly": [
+          4281.235839291159,
+          4726.104570387623,
+          6343.09794139147,
+          6012.330160519908,
+          6574.687079251807,
+          7052.555457892125,
+          8013.627072964287,
+          7369.560107556807,
+          6923.473090282948,
+          5497.400260434342,
+          4160.176318919314,
+          4322.984491278802
+        ],
+        "ac_annual": 67874.08729397705,
+        "solrad_annual": 4.916315414535437,
+        "capacity_factor": 15.4963669620952
+      }
+    },
+    "design": {
+      "system_capacity_kwdc": 56.9,
+      "system_capacity_kwac": 68.28,
+      "annual_production_kwh": 67874.08729397705,
+      "specific_yield_kwh_per_kw": 1195.129,
+      "estimated_cost_usd": 68280,
+      "estimated_LCOE_usd_per_kWh": 0.045,
+      "bill_of_materials": {
+        "modules": {
+          "quantity": 142,
+          "model": "Generic 400W",
+          "power_w": 400
+        },
+        "inverters": {
+          "quantity": 2,
+          "model": "Generic 35kW",
+          "capacity_kw": 35
+        },
+        "racking": {
+          "type": "Roof Mount",
+          "material": "Aluminum"
+        },
+        "bos": [
+          "Wiring",
+          "Disconnect Switch",
+          "Combiner Box",
+          "Monitoring System",
+          "Grounding Equipment"
+        ]
+      },
+      "design_notes": [
+        "Assumed a rooftop installation with optimal orientation.",
+        "AC/DC ratio of 1.2 used for inverter sizing.",
+        "Estimated costs based on typical market rates.",
+        "Production estimates based on PVWatts outputs for Austin, TX.",
+        "Consideration for shading and local regulations may affect performance."
+      ],
+      "score": 100
+    }
+  },
+  "final_decision": {
+    "go_no_go": "GO",
+    "score": 72,
+    "component_scores": {
+      "research": 65,
+      "permitting": 55,
+      "design": 100
+    },
+    "justification": [
+      "Research score 65 reflects local policy sentiment and renewable support.",
+      "Permitting score 55 accounts for jurisdiction requirements and review timelines.",
+      "Design score 100 measures technical yield, cost efficiency, and system robustness.",
+      "Weighted overall feasibility score is 72, resulting in a 'GO' decision."
+    ]
+  }
+}

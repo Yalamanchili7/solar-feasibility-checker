@@ -1,0 +1,196 @@
+{
+  "address": "New York, NY",
+  "research": {
+    "agent": "ResearchAgent",
+    "address": "New York, NY",
+    "news_headlines": [
+      "No recent relevant solar or policy news found."
+    ],
+    "analysis": {
+      "summary": "The absence of recent relevant solar or policy news suggests a stable regulatory environment in New York, with no immediate changes or challenges to solar project development. This stability may indicate a continued support for renewable energy initiatives, although the lack of news could also imply stagnation in policy advancements. Overall, the environment appears neutral, without significant movements either in favor or against solar projects.",
+      "risks": [
+        "Potential stagnation in policy advancements could hinder future solar project growth.",
+        "Lack of recent community engagement or feedback may lead to unforeseen local opposition.",
+        "Absence of news may indicate a lack of proactive measures to promote solar energy, which could affect long-term viability."
+      ],
+      "score": 65,
+      "sentiment": "neutral"
+    }
+  },
+  "permitting": {
+    "agent": "PermittingAgent",
+    "address": "New York, NY",
+    "rules": {
+      "jurisdiction": "new york",
+      "building_permit": true,
+      "electrical_permit": true,
+      "fire_setback": 18,
+      "avg_review_days": 10
+    },
+    "permit_form": {
+      "permit_required": {
+        "building_permit": true,
+        "electrical_permit": true
+      },
+      "fire_code_setback_inches": 18,
+      "average_review_days": 10,
+      "special_considerations": [],
+      "score": 55,
+      "jurisdiction": "new york",
+      "friendly_notes": "new york typically requires building_permit, electrical_permit with an average review time of 10 days and a fire code setback of 18 inches."
+    },
+    "friendly_notes": "new york typically requires building_permit, electrical_permit with an average review time of 10 days and a fire code setback of 18 inches."
+  },
+  "design": {
+    "agent": "DesignAgent",
+    "address": "New York, NY",
+    "pvwatts_raw": {
+      "inputs": {
+        "lat": "40.7127281",
+        "lon": "-74.0060152",
+        "system_capacity": "50.0",
+        "azimuth": "180",
+        "tilt": "20",
+        "array_type": "1",
+        "module_type": "1",
+        "losses": "14",
+        "dataset": "tmy3"
+      },
+      "errors": [],
+      "warnings": [],
+      "version": "8.4.0",
+      "ssc_info": {
+        "version": 280,
+        "build": "Linux 64 bit GNU/C++ Oct 18 2023 07:13:03",
+        "module": "pvwattsv8"
+      },
+      "station_info": {
+        "lat": 40.78300094604492,
+        "lon": -73.96700286865234,
+        "elev": 40.0,
+        "tz": -5.0,
+        "location": "725033",
+        "city": "\"NEW YORK CENTRAL PRK OBS BELV\"",
+        "state": "NY",
+        "solar_resource_file": "725033.csv",
+        "distance": 8521,
+        "weather_data_source": "NSRDB 1991-2005 Archive TMY3"
+      },
+      "outputs": {
+        "ac_monthly": [
+          3468.633278421161,
+          4280.4960927561,
+          6023.491648850994,
+          6315.045787999195,
+          6577.066005299217,
+          7276.831456250011,
+          7339.913947173607,
+          6753.362772533625,
+          5751.61123519736,
+          5023.136342374891,
+          3491.96750624791,
+          3005.015396894261
+        ],
+        "poa_monthly": [
+          81.06478059355916,
+          101.62743216282,
+          147.0438684910802,
+          159.0040080316064,
+          170.7508644962809,
+          191.3111868131371,
+          195.3046485291769,
+          177.8976397192391,
+          148.3348771537004,
+          124.5587517491956,
+          85.93532049933395,
+          71.45294738394547
+        ],
+        "solrad_monthly": [
+          2.614992922372876,
+          3.629551148672143,
+          4.743350596486458,
+          5.300133601053548,
+          5.508092403105837,
+          6.377039560437902,
+          6.300149952554093,
+          5.738633539330293,
+          4.944495905123347,
+          4.01802424997405,
+          2.864510683311132,
+          2.304933786578886
+        ],
+        "dc_monthly": [
+          3659.734209577577,
+          4500.949077207599,
+          6324.301913847526,
+          6633.326275889406,
+          6911.294579015104,
+          7639.636728324355,
+          7705.12620363876,
+          7090.691710719776,
+          6042.017126435111,
+          5280.311181610013,
+          3684.069871634677,
+          3178.427103456172
+        ],
+        "ac_annual": 65306.57146999824,
+        "solrad_annual": 4.52865902908338,
+        "capacity_factor": 14.91017613470285
+      }
+    },
+    "design": {
+      "system_capacity_kwdc": 500,
+      "system_capacity_kwac": 600,
+      "annual_production_kwh": 65306.57146999824,
+      "specific_yield_kwh_per_kw": 130.61314294399648,
+      "estimated_cost_usd": 600000,
+      "estimated_LCOE_usd_per_kWh": 0.0004,
+      "bill_of_materials": {
+        "modules": {
+          "quantity": 1500,
+          "model": "SolarMax 400W",
+          "power_w": 400
+        },
+        "inverters": {
+          "quantity": 2,
+          "model": "InverTech 300kW",
+          "capacity_kw": 300
+        },
+        "racking": {
+          "type": "fixed-tilt",
+          "material": "aluminum"
+        },
+        "bos": [
+          "cabling",
+          "disconnect switches",
+          "fuses",
+          "combiner boxes",
+          "monitoring equipment"
+        ]
+      },
+      "design_notes": [
+        "Assumed a standard rooftop installation with no shading.",
+        "AC/DC ratio of 1.2 was used for inverter sizing.",
+        "Cost estimation based on $1200 per kWdc installed.",
+        "LCOE calculated over a 25-year lifespan.",
+        "Specific yield indicates good performance for the given location."
+      ],
+      "score": 80
+    }
+  },
+  "final_decision": {
+    "go_no_go": "GO",
+    "score": 66,
+    "component_scores": {
+      "research": 65,
+      "permitting": 55,
+      "design": 80
+    },
+    "justification": [
+      "Research score 65 reflects local policy sentiment and renewable support.",
+      "Permitting score 55 accounts for jurisdiction requirements and review timelines.",
+      "Design score 80 measures technical yield, cost efficiency, and system robustness.",
+      "Weighted overall feasibility score is 66, resulting in a 'GO' decision."
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-11-11T15:46:23.573461",
+  "address": "Las Vegas, NV",
+  "system_prompt": "You are a solar permitting specialist. Given local permitting rules, fill out a simple permit form.",
+  "user_prompt": "\nAddress: Las Vegas, NV\nRules:\n{\n  \"state\": \"NV\",\n  \"jurisdiction\": \"Las Vegas\",\n  \"building_permit\": true,\n  \"electrical_permit\": false,\n  \"fire_setback\": 21,\n  \"avg_review_days\": 10\n}\n\nRespond strictly in JSON with:\n  - permit_required\n  - fire_code_setback_inches\n  - average_review_days\n  - special_considerations\n",
+  "raw_response": "{\n  \"permit_required\": {\n    \"building_permit\": true,\n    \"electrical_permit\": false\n  },\n  \"fire_code_setback_inches\": 21,\n  \"average_review_days\": 10,\n  \"special_considerations\": null\n}",
+  "parsed_form": {
+    "permit_required": {
+      "building_permit": true,
+      "electrical_permit": false
+    },
+    "fire_code_setback_inches": 21,
+    "average_review_days": 10,
+    "special_considerations": null,
+    "score": 54,
+    "jurisdiction": "Las Vegas",
+    "friendly_notes": "Las Vegas typically requires building_permit, electrical_permit with an average review time of 10 days and a fire code setback of 21 inches."
+  }
+}

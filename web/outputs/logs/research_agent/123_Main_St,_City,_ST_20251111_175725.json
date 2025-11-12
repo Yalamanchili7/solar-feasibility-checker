@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-11-11T17:57:25.430838",
+  "address": "123 Main St, City, ST",
+  "system_prompt": "You are a renewable energy policy analyst. Given recent headlines, determine whether the local environment is favorable for new solar projects. Consider permitting support, community acceptance, and environmental policies.",
+  "user_prompt": "\nAddress: 123 Main St, City, ST\n\nRecent Headlines:\n['No recent relevant solar or policy news found.']\n\nPlease:\n1. Summarize the policy and regulatory tone in 3\u20135 sentences.\n2. Identify up to 3 risks or red flags.\n3. Assign a favorability score (0\u2013100).\n4. Output your answer as JSON with keys: summary, risks, score, sentiment.\n",
+  "raw_response": "{\n  \"summary\": \"The absence of recent relevant solar or policy news suggests a stable regulatory environment for solar projects, with no immediate threats or changes in policy that could hinder development. This stability may indicate a neutral to positive tone regarding permitting support and community acceptance. However, the lack of headlines may also imply a lack of active promotion or support for new solar initiatives.\",\n  \"risks\": [\n    \"Potential stagnation in solar policy advancement due to lack of recent news.\",\n    \"Community engagement may be low if there are no recent discussions or initiatives.\",\n    \"Uncertainty regarding future environmental policies that could impact solar project viability.\"\n  ],\n  \"score\": 65,\n  \"sentiment\": \"neutral\"\n}",
+  "parsed_analysis": {
+    "summary": "The absence of recent relevant solar or policy news suggests a stable regulatory environment for solar projects, with no immediate threats or changes in policy that could hinder development. This stability may indicate a neutral to positive tone regarding permitting support and community acceptance. However, the lack of headlines may also imply a lack of active promotion or support for new solar initiatives.",
+    "risks": [
+      "Potential stagnation in solar policy advancement due to lack of recent news.",
+      "Community engagement may be low if there are no recent discussions or initiatives.",
+      "Uncertainty regarding future environmental policies that could impact solar project viability."
+    ],
+    "score": 65,
+    "sentiment": "neutral"
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "address": "Miami, FL",
+  "research": {
+    "agent": "ResearchAgent",
+    "address": "Miami, FL",
+    "news_headlines": [
+      "No recent relevant solar or policy news found."
+    ],
+    "analysis": {
+      "summary": "The lack of recent relevant solar or policy news in Miami, FL suggests a stable but potentially stagnant regulatory environment for solar projects. Without new initiatives or changes in policy, there may be limited momentum for advancing solar energy adoption. However, the absence of negative news indicates that existing policies may still be supportive of solar development.",
+      "risks": [
+        "Potential stagnation in policy advancements could hinder new project approvals.",
+        "Community engagement and acceptance may be low due to lack of recent outreach or initiatives.",
+        "Environmental policies may not be actively promoting renewable energy, leading to uncertainty."
+      ],
+      "score": 60,
+      "sentiment": "neutral"
+    }
+  },
+  "permitting": {
+    "agent": "PermittingAgent",
+    "address": "Miami, FL",
+    "rules": {
+      "state": "FL",
+      "jurisdiction": "Miami",
+      "building_permit": true,
+      "electrical_permit": false,
+      "fire_setback": 18,
+      "avg_review_days": 9
+    },
+    "permit_form": {
+      "permit_required": {
+        "building_permit": true,
+        "electrical_permit": false
+      },
+      "fire_code_setback_inches": 18,
+      "average_review_days": 9,
+      "special_considerations": [],
+      "score": 57,
+      "jurisdiction": "Miami",
+      "friendly_notes": "Miami typically requires building_permit, electrical_permit with an average review time of 9 days and a fire code setback of 18 inches."
+    },
+    "friendly_notes": "Miami typically requires building_permit, electrical_permit with an average review time of 9 days and a fire code setback of 18 inches."
+  },
+  "design": {
+    "agent": "DesignAgent",
+    "address": "Miami, FL",
+    "pvwatts_raw": {
+      "inputs": {
+        "lat": "25.7741566",
+        "lon": "-80.1935973",
+        "system_capacity": "50.0",
+        "azimuth": "180",
+        "tilt": "20",
+        "array_type": "1",
+        "module_type": "1",
+        "losses": "14",
+        "dataset": "tmy3"
+      },
+      "errors": [],
+      "warnings": [],
+      "version": "8.4.0",
+      "ssc_info": {
+        "version": 280,
+        "build": "Linux 64 bit GNU/C++ Oct 18 2023 07:13:03",
+        "module": "pvwattsv8"
+      },
+      "station_info": {
+        "lat": 25.8169994354248,
+        "lon": -80.30000305175781,
+        "elev": 11.0,
+        "tz": -5.0,
+        "location": "722020",
+        "city": "\"MIAMI INTL AP\"",
+        "state": "FL",
+        "solar_resource_file": "722020.csv",
+        "distance": 11755,
+        "weather_data_source": "NSRDB 1991-2005 Archive TMY3"
+      },
+      "outputs": {
+        "ac_monthly": [
+          5370.397806061017,
+          5481.202307858459,
+          6761.737570458732,
+          6891.946837916926,
+          6514.426757794251,
+          5815.698690630291,
+          6551.679923372943,
+          6301.501032862711,
+          5778.371094284342,
+          5824.106428937203,
+          4992.663719991011,
+          4996.551585677344
+        ],
+        "poa_monthly": [
+          138.1961604267836,
+          141.3008646622685,
+          175.1667994552888,
+          181.6761392596401,
+          173.8911314998973,
+          156.7078217689098,
+          178.0247338424349,
+          169.5119923563861,
+          155.2870268104857,
+          154.3925532323989,
+          129.9417866273036,
+          127.8686781083097
+        ],
+        "solrad_monthly": [
+          4.457940658928504,
+          5.046459452223874,
+          5.650541917912543,
+          6.05587130865467,
+          5.609391338706364,
+          5.22359405896366,
+          5.742733349755964,
+          5.468128785689874,
+          5.176234227016189,
+          4.98040494298061,
+          4.331392887576786,
+          4.124796068009991
+        ],
+        "dc_monthly": [
+          5637.744241398536,
+          5748.449393975628,
+          7096.491089390009,
+          7221.298666612931,
+          6841.20841251217,
+          6114.760349899643,
+          6879.03762580162,
+          6615.790582638941,
+          6068.476303579377,
+          6114.363699174075,
+          5247.882751491918,
+          5246.217113777665
+        ],
+        "ac_annual": 71280.28375584522,
+        "solrad_annual": 5.155624083034919,
+        "capacity_factor": 16.27403738717929
+      }
+    },
+    "design": {
+      "system_capacity_kwdc": 60,
+      "system_capacity_kwac": 72,
+      "annual_production_kwh": 71280,
+      "specific_yield_kwh_per_kw": 1188,
+      "estimated_cost_usd": 72000,
+      "estimated_LCOE_usd_per_kWh": 0.024,
+      "bill_of_materials": {
+        "modules": {
+          "quantity": 240,
+          "model": "ExampleSolar 250W",
+          "power_w": 250
+        },
+        "inverters": {
+          "quantity": 2,
+          "model": "InverterModel X",
+          "capacity_kw": 36
+        },
+        "racking": {
+          "type": "Roof Mount",
+          "material": "Aluminum"
+        },
+        "bos": [
+          "DC Disconnect",
+          "AC Disconnect",
+          "Combiner Box",
+          "Wiring and Conduits",
+          "Monitoring System"
+        ]
+      },
+      "design_notes": [
+        "Assumed a rooftop installation with optimal orientation.",
+        "AC/DC ratio set to 1.2 for inverter sizing.",
+        "Estimated costs based on current market rates.",
+        "Production values are based on PVWatts outputs.",
+        "Specific yield indicates good performance for the location."
+      ],
+      "score": 100
+    }
+  },
+  "final_decision": {
+    "go_no_go": "GO",
+    "score": 71,
+    "component_scores": {
+      "research": 60,
+      "permitting": 57,
+      "design": 100
+    },
+    "justification": [
+      "Research score 60 reflects local policy sentiment and renewable support.",
+      "Permitting score 57 accounts for jurisdiction requirements and review timelines.",
+      "Design score 100 measures technical yield, cost efficiency, and system robustness.",
+      "Weighted overall feasibility score is 71, resulting in a 'GO' decision."
+    ]
+  }
+}

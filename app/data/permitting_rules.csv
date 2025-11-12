@@ -1,0 +1,63 @@
+state,jurisdiction,building_permit,electrical_permit,fire_setback,avg_review_days
+CA,Los Angeles,True,True,35,20
+TX,Houston,False,True,22,13
+NY,Buffalo,True,True,28,27
+FL,Miami,True,False,18,9
+WA,Seattle,False,False,16,8
+OR,Portland,True,True,24,11
+AZ,Phoenix,False,True,17,8
+NV,Las Vegas,True,False,21,10
+NJ,Newark,True,True,26,23
+IL,Chicago,False,False,15,7
+MI,Detroit,True,True,25,13
+OH,Cleveland,False,True,18,9
+PA,Philadelphia,True,False,22,12
+GA,Atlanta,False,False,13,5
+NC,Charlotte,True,True,23,14
+VA,Richmond,False,True,20,11
+TN,Nashville,True,False,16,8
+SC,Charleston,False,False,12,4
+MN,Minneapolis,True,True,27,16
+WI,Milwaukee,False,True,19,10
+CO,Denver,True,False,23,13
+UT,Salt Lake City,False,False,14,6
+NM,Albuquerque,True,True,21,12
+KS,Wichita,False,True,16,7
+MO,St. Louis,True,False,24,14
+AR,Little Rock,False,False,13,5
+LA,New Orleans,True,True,26,15
+MS,Jackson,False,True,17,8
+AL,Birmingham,True,False,20,10
+OK,Oklahoma City,False,True,15,7
+KY,Louisville,True,False,19,9
+MA,Boston,True,True,30,18
+MD,Baltimore,False,True,21,11
+IN,Indianapolis,True,False,17,8
+CT,Hartford,False,False,14,6
+IA,Des Moines,True,True,22,12
+NE,Omaha,False,True,16,7
+SD,Sioux Falls,True,False,18,8
+ND,Fargo,False,False,13,5
+WV,Charleston,True,True,20,10
+NH,Manchester,False,True,15,7
+ME,Portland,True,False,17,8
+VT,Burlington,False,False,12,4
+DE,Wilmington,True,True,19,9
+RI,Providence,False,True,16,7
+MT,Billings,True,False,18,8
+WY,Cheyenne,False,False,13,5
+ID,Boise,True,True,21,11
+AK,Anchorage,False,True,15,7
+HI,Honolulu,True,False,20,10
+DC,Washington,True,True,28,17
+PR,San Juan,False,True,20,9
+GU,Hagåtña,True,False,16,8
+VI,Charlotte Amalie,False,False,14,6
+AS,Pago Pago,True,True,18,10
+MP,Saipan,False,True,15,7
+FM,Palikir,True,False,17,8
+MH,Majuro,False,True,16,7
+PW,Ngerulmud,True,True,19,9
+AA,Arlington,False,False,13,5
+AE,Frankfurt,True,False,18,8
+AP,Tokyo,False,True,15,7

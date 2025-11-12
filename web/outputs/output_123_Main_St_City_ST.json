@@ -1,0 +1,198 @@
+{
+  "address": "123 Main St, City, ST",
+  "research": {
+    "agent": "ResearchAgent",
+    "address": "123 Main St, City, ST",
+    "news_headlines": [
+      "No recent relevant solar or policy news found."
+    ],
+    "analysis": {
+      "summary": "The absence of recent relevant solar or policy news suggests a stable regulatory environment for solar projects, with no immediate threats or changes in policy that could hinder development. This stability may indicate a neutral to positive tone regarding permitting support and community acceptance. However, the lack of headlines may also imply a lack of active promotion or support for new solar initiatives.",
+      "risks": [
+        "Potential stagnation in solar policy advancement due to lack of recent news.",
+        "Community engagement may be low if there are no recent discussions or initiatives.",
+        "Uncertainty regarding future environmental policies that could impact solar project viability."
+      ],
+      "score": 65,
+      "sentiment": "neutral"
+    }
+  },
+  "permitting": {
+    "agent": "PermittingAgent",
+    "address": "123 Main St, City, ST",
+    "rules": {
+      "jurisdiction": "123 main st",
+      "building_permit": true,
+      "electrical_permit": true,
+      "fire_setback": 18,
+      "avg_review_days": 10
+    },
+    "permit_form": {
+      "permit_required": [
+        "True"
+      ],
+      "fire_code_setback_inches": 18,
+      "average_review_days": 10,
+      "special_considerations": {
+        "building_permit": true,
+        "electrical_permit": true
+      },
+      "score": 65,
+      "jurisdiction": "123 main st",
+      "friendly_notes": "123 main st typically requires True with an average review time of 10 days and a fire code setback of 18 inches."
+    },
+    "friendly_notes": "123 main st typically requires True with an average review time of 10 days and a fire code setback of 18 inches."
+  },
+  "design": {
+    "agent": "DesignAgent",
+    "address": "123 Main St, City, ST",
+    "pvwatts_raw": {
+      "inputs": {
+        "lat": "-37.7967642",
+        "lon": "145.2807644",
+        "system_capacity": "50.0",
+        "azimuth": "180",
+        "tilt": "20",
+        "array_type": "1",
+        "module_type": "1",
+        "losses": "14",
+        "dataset": "intl"
+      },
+      "errors": [],
+      "warnings": [],
+      "version": "8.4.0",
+      "ssc_info": {
+        "version": 280,
+        "build": "Linux 64 bit GNU/C++ Oct 18 2023 07:13:03",
+        "module": "pvwattsv8"
+      },
+      "station_info": {
+        "lat": -37.97999954223633,
+        "lon": 145.1000061035156,
+        "elev": 13.0,
+        "tz": 10.0,
+        "location": "948700",
+        "city": "Moorabbin Airport",
+        "state": "VIC",
+        "solar_resource_file": "948700-EPW-RMY.epw",
+        "distance": 31119,
+        "weather_data_source": "PVWatts International"
+      },
+      "outputs": {
+        "ac_monthly": [
+          7319.578637883562,
+          5669.911915876788,
+          4441.88691815388,
+          2468.996204380097,
+          1566.725497904026,
+          1240.248004078589,
+          1475.158400365942,
+          2107.832156416363,
+          3403.135716286529,
+          4807.952483716345,
+          6404.477104513295,
+          7359.945859543252
+        ],
+        "poa_monthly": [
+          189.4312934462993,
+          146.7200444538881,
+          116.4162164232342,
+          66.11511898459268,
+          43.03788183553414,
+          33.22157349909497,
+          39.92468197110416,
+          55.45565384743136,
+          87.45703029590429,
+          122.0768931473485,
+          163.1803917972217,
+          188.389126645917
+        ],
+        "solrad_monthly": [
+          6.110686885364494,
+          5.240001587638861,
+          3.755361820104329,
+          2.203837299486423,
+          1.388318768888198,
+          1.107385783303166,
+          1.287892966809812,
+          1.78889205959456,
+          2.91523434319681,
+          3.937964295075759,
+          5.439346393240724,
+          6.077068601481193
+        ],
+        "dc_monthly": [
+          7677.614298013367,
+          5952.795400562409,
+          4681.797534358145,
+          2625.530527670003,
+          1688.013067255075,
+          1342.515841340419,
+          1589.13770264232,
+          2250.931205068023,
+          3600.077042009907,
+          5064.091625892453,
+          6725.381723702752,
+          7720.183799743501
+        ],
+        "ac_annual": 48265.84889911868,
+        "solrad_annual": 3.437665900348694,
+        "capacity_factor": 11.01960020527822
+      }
+    },
+    "design": {
+      "system_capacity_kwdc": 40000,
+      "system_capacity_kwac": 48000,
+      "annual_production_kwh": 48265.84889911868,
+      "specific_yield_kwh_per_kw": 1.206646220747947,
+      "estimated_cost_usd": 48000,
+      "estimated_LCOE_usd_per_kWh": 0.04000000000000001,
+      "bill_of_materials": {
+        "modules": {
+          "quantity": 100,
+          "model": "SolarMax 400W",
+          "power_w": 400
+        },
+        "inverters": {
+          "quantity": 2,
+          "model": "InverterPro 20kW",
+          "capacity_kw": 20
+        },
+        "racking": {
+          "type": "roof-mounted",
+          "material": "aluminum"
+        },
+        "bos": [
+          "DC disconnect switch",
+          "AC disconnect switch",
+          "cabling",
+          "fuse box",
+          "monitoring system"
+        ]
+      },
+      "design_notes": [
+        "Assumed a rooftop installation with optimal orientation.",
+        "AC/DC ratio of 1.2 used for inverter sizing.",
+        "Estimated costs based on current market rates.",
+        "Production estimates consider local solar irradiance.",
+        "LCOE calculated over a 25-year lifespan."
+      ],
+      "score": 80
+    }
+  },
+  "final_decision": {
+    "go_no_go": "GO",
+    "score": 70,
+    "component_scores": {
+      "research": 65,
+      "permitting": 65,
+      "design": 80
+    },
+    "justification": [
+      "Research score 65 reflects local policy sentiment and renewable support.",
+      "Permitting score 65 accounts for jurisdiction requirements and review timelines.",
+      "Design score 80 measures technical yield, cost efficiency, and system robustness.",
+      "Weighted overall feasibility score is 70, resulting in a 'GO' decision."
+    ]
+  }
+}

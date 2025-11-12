@@ -1,0 +1,183 @@
+{
+  "address": "Seattle, WA",
+  "research": {
+    "agent": "ResearchAgent",
+    "address": "Seattle, WA",
+    "news_headlines": [
+      "No recent relevant solar or policy news found."
+    ],
+    "analysis": {
+      "summary": "The lack of recent relevant solar or policy news in Seattle suggests a stable but potentially stagnant environment for solar projects. Without new developments or changes in regulations, it may indicate that existing policies are being maintained rather than actively promoted. Community acceptance appears neutral, as no significant opposition or support has been reported recently.",
+      "risks": [
+        "Potential stagnation in policy development could hinder new solar initiatives.",
+        "Lack of community engagement may lead to unforeseen opposition in the future.",
+        "Absence of recent headlines might indicate a lack of momentum or interest in renewable energy projects."
+      ],
+      "score": 60,
+      "sentiment": "neutral"
+    }
+  },
+  "permitting": {
+    "agent": "PermittingAgent",
+    "address": "Seattle, WA",
+    "rules": {},
+    "permit_form": {
+      "summary": "Error occurred: object of type 'bool' has no len()",
+      "score": 0,
+      "special_considerations": "Error in pipeline."
+    },
+    "friendly_notes": ""
+  },
+  "design": {
+    "agent": "DesignAgent",
+    "address": "Seattle, WA",
+    "pvwatts_raw": {
+      "inputs": {
+        "lat": "47.6038321",
+        "lon": "-122.330062",
+        "system_capacity": "50.0",
+        "azimuth": "180",
+        "tilt": "20",
+        "array_type": "1",
+        "module_type": "1",
+        "losses": "14",
+        "dataset": "tmy3"
+      },
+      "errors": [],
+      "warnings": [],
+      "version": "8.4.0",
+      "ssc_info": {
+        "version": 280,
+        "build": "Linux 64 bit GNU/C++ Oct 18 2023 07:13:03",
+        "module": "pvwattsv8"
+      },
+      "station_info": {
+        "lat": 47.68000030517578,
+        "lon": -122.25,
+        "elev": 20.0,
+        "tz": -8.0,
+        "location": "727935",
+        "city": "\"SEATTLE BOEING FIELD [ISIS]\"",
+        "state": "WA",
+        "solar_resource_file": "727935.csv",
+        "distance": 10364,
+        "weather_data_source": "NSRDB 1991-2005 Archive TMY3"
+      },
+      "outputs": {
+        "ac_monthly": [
+          1509.008041227797,
+          3427.143737212027,
+          4001.341008478787,
+          5645.838275672561,
+          6391.293636089935,
+          5869.265590071427,
+          7586.457883060598,
+          6787.072358695441,
+          6201.991834363206,
+          3084.241264427852,
+          1455.677230604055,
+          1321.053329339051
+        ],
+        "poa_monthly": [
+          37.82855997323499,
+          84.09032620731074,
+          100.2601522191622,
+          143.3275448050246,
+          163.6989172199974,
+          153.293437418232,
+          200.237050621282,
+          177.2281165670736,
+          159.3835613177083,
+          78.16385220257607,
+          37.02452734483747,
+          32.89401702067109
+        ],
+        "solrad_monthly": [
+          1.220276128168871,
+          3.003225935975383,
+          3.23419845868265,
+          4.777584826834152,
+          5.280610232903141,
+          5.109781247274399,
+          6.45925969746071,
+          5.717036018292697,
+          5.312785377256943,
+          2.521414587179873,
+          1.234150911494582,
+          1.061097323247454
+        ],
+        "dc_monthly": [
+          1618.145578203043,
+          3609.072616611315,
+          4218.572695237021,
+          5932.258835058232,
+          6717.706073089794,
+          6173.957866250691,
+          7956.601411373723,
+          7120.933805101783,
+          6502.462820770536,
+          3261.705894205101,
+          1563.584447812748,
+          1414.316473032565
+        ],
+        "ac_annual": 53280.38418924288,
+        "solrad_annual": 3.744285062064238,
+        "capacity_factor": 12.16447127608281
+      }
+    },
+    "design": {
+      "system_capacity_kwdc": 44.4,
+      "system_capacity_kwac": 53.28,
+      "annual_production_kwh": 53280.38418924288,
+      "specific_yield_kwh_per_kw": 1200.0,
+      "estimated_cost_usd": 53280.46000000001,
+      "estimated_LCOE_usd_per_kWh": 0.0426243648,
+      "bill_of_materials": {
+        "modules": {
+          "quantity": 148,
+          "model": "Generic 300W Module",
+          "power_w": 300
+        },
+        "inverters": {
+          "quantity": 2,
+          "model": "Generic 25kW Inverter",
+          "capacity_kw": 25
+        },
+        "racking": {
+          "type": "Roof Mount",
+          "material": "Aluminum"
+        },
+        "bos": [
+          "DC/AC Disconnects",
+          "Combiner Box",
+          "Wiring and Conduits",
+          "Grounding Equipment",
+          "Monitoring System"
+        ]
+      },
+      "design_notes": [
+        "System assumes optimal tilt and orientation for maximum sun exposure.",
+        "AC/DC ratio of 1.2 is used to account for system losses.",
+        "Cost estimation is based on average market rates.",
+        "Specific yield indicates a well-performing system in the given location.",
+        "Shading analysis not included; actual performance may vary."
+      ],
+      "score": 100
+    }
+  },
+  "final_decision": {
+    "go_no_go": "NO_GO",
+    "score": 54,
+    "component_scores": {
+      "research": 60,
+      "permitting": 0,
+      "design": 100
+    },
+    "justification": [
+      "Research score 60 reflects local policy sentiment and renewable support.",
+      "Permitting score 0 accounts for jurisdiction requirements and review timelines.",
+      "Design score 100 measures technical yield, cost efficiency, and system robustness.",
+      "Weighted overall feasibility score is 54, resulting in a 'NO_GO' decision."
+    ]
+  }
+}

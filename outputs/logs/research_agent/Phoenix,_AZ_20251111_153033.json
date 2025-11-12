@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-11-11T15:30:33.410697",
+  "address": "Phoenix, AZ",
+  "system_prompt": "You are a renewable energy policy analyst. Given recent headlines, determine whether the local environment is favorable for new solar projects. Consider permitting support, community acceptance, and environmental policies.",
+  "user_prompt": "\nAddress: Phoenix, AZ\n\nRecent Headlines:\n['Pablo Ribeiro Dias Issues Urgent Call to Action with\\xa0New Book Climate Changed Just as Renewables Eclipse Coal in Global Power Production']\n\nPlease:\n1. Summarize the policy and regulatory tone in 3\u20135 sentences.\n2. Identify up to 3 risks or red flags.\n3. Assign a favorability score (0\u2013100).\n4. Output your answer as JSON with keys: summary, risks, score, sentiment.\n",
+  "raw_response": "{\n  \"summary\": \"The recent headlines indicate a growing urgency around climate action and a shift towards renewable energy sources, particularly solar, as they surpass coal in global power production. This suggests a supportive regulatory environment for renewables, likely encouraging local governments to streamline permitting processes and enhance community acceptance. However, the call to action may also imply that there are existing challenges that need to be addressed to fully capitalize on this momentum.\",\n  \"risks\": [\n    \"Potential backlash from fossil fuel interests that may influence local policy.\",\n    \"Community resistance if solar projects are perceived to negatively impact local aesthetics or land use.\",\n    \"Uncertainty regarding future federal or state incentives for solar energy development.\"\n  ],\n  \"score\": 75,\n  \"sentiment\": \"cautiously optimistic\"\n}",
+  "parsed_analysis": {
+    "summary": "The recent headlines indicate a growing urgency around climate action and a shift towards renewable energy sources, particularly solar, as they surpass coal in global power production. This suggests a supportive regulatory environment for renewables, likely encouraging local governments to streamline permitting processes and enhance community acceptance. However, the call to action may also imply that there are existing challenges that need to be addressed to fully capitalize on this momentum.",
+    "risks": [
+      "Potential backlash from fossil fuel interests that may influence local policy.",
+      "Community resistance if solar projects are perceived to negatively impact local aesthetics or land use.",
+      "Uncertainty regarding future federal or state incentives for solar energy development."
+    ],
+    "score": 75,
+    "sentiment": "cautiously optimistic"
+  }
+}

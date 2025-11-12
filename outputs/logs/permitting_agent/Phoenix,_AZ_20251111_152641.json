@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-11-11T15:26:41.851872",
+  "address": "Phoenix, AZ",
+  "system_prompt": "You are a solar permitting specialist. Given local permitting rules, fill out a simple permit form.",
+  "user_prompt": "\nAddress: Phoenix, AZ\nRules:\n{\n  \"state\": \"AZ\",\n  \"jurisdiction\": \"Phoenix\",\n  \"building_permit\": false,\n  \"electrical_permit\": true,\n  \"fire_setback\": 17,\n  \"avg_review_days\": 8\n}\n\nRespond strictly in JSON with:\n  - permit_required\n  - fire_code_setback_inches\n  - average_review_days\n  - special_considerations\n",
+  "raw_response": "```json\n{\n  \"permit_required\": {\n    \"building_permit\": false,\n    \"electrical_permit\": true\n  },\n  \"fire_code_setback_inches\": 17,\n  \"average_review_days\": 8,\n  \"special_considerations\": \"Ensure compliance with local electrical codes.\"\n}\n```",
+  "parsed_form": {
+    "permit_required": [
+      "electrical"
+    ],
+    "fire_code_setback_inches": 17,
+    "average_review_days": 8,
+    "special_considerations": "Fallback due to invalid LLM output.",
+    "score": 70
+  }
+}

@@ -7,201 +7,205 @@
 [![GitHub Actions](https://img.shields.io/badge/tests-GitHub%20Actions-success.svg)](https://github.com/features/actions)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
----
 
-## Overview
+## 🌞 Overview
 
-This project is a **multi-agent AI system** that evaluates the **feasibility of solar projects** for given addresses.  
-Each agent operates independently to analyze a specific aspect of a site — policy environment, permitting requirements, and design potential — and the orchestrator combines those findings into a final **Go / No-Go** decision.
+The system orchestrates multiple specialized agents that each analyze different aspects of solar feasibility:
 
-It's designed as a realistic, modular prototype that could be expanded into a production pipeline using real data sources and LLM-powered reasoning.
+| Agent | Function | Key Output |
+|--------|-----------|------------|
+| **Research Agent** | Analyzes recent policy, sentiment, and renewable energy trends for the location. | Summary, sentiment, risk factors, and a favorability score. |
+| **Permitting Agent** | Looks up local building/electrical permitting rules and fire setback codes. | Required permits, review times, and a permitting score. |
+| **Design Agent** | Uses NREL’s PVWatts API + LLM design reasoning to estimate solar yield and system components. | System size, annual production, BoM, and design score. |
 
----
-
-## Goals
-
-The system implements everything requested in the **Climatize AI/ML Engineering Lead Technical Challenge**, including:
-
-- A working proof-of-concept that accepts one or more addresses and returns a **feasibility score + justification**.  
-- Multiple **independent agents** communicating through a lightweight orchestrator.  
-- Human-readable outputs (CLI + optional Streamlit UI).  
-- A clean, dockerized, reproducible environment.
+The **Orchestrator** combines these analyses into a final decision:
+> 🧠 Weighted scoring: Research (40%) + Permitting (30%) + Design (30%)
 
 ---
 
-## Architecture
+## ⚙️ System Architecture
 
 ```
-agent_system/
-├── src/
+solar-feasibility-checker/
+├── app/
 │   ├── agents/
 │   │   ├── research_agent.py
 │   │   ├── permitting_agent.py
 │   │   └── design_agent.py
-│   │
+│   ├── orchestrator/
+│   │   └── coordinator.py
 │   ├── utils/
-│   │   ├── geo.py
-│   │   ├── io.py
-│   │   └── scoring.py
-│   │
-│   ├── ui/
-│   │   └── app.py
-│   │
-│   ├── data/
-│   │   ├── dummy_permit_rules.json
-│   │   ├── mock_solar_irradiance.csv
-│   │   └── permit_form_template.json
-│   │
-│   ├── orchestrator.py
-│   ├── main.py
-│   └── models.py
-│
+│   │   ├── llm_client.py
+│   │   └── config.py
+│   └── data/
+│       └── permitting_rules.csv
+├── outputs/
+│   └── logs/
+├── web/
+│   └── app.py
 ├── tests/
-│   └── smoke_test.py
-│
+│   └── test_smoke.py
+├── cli.py
 ├── requirements.txt
-├── Dockerfile
-├── pytest.ini
-└── README.md
+├── .env.example
+├── README.md
+└── .github/
+    └── workflows/
+        └── ci.yml
+
 ```
 
 ---
 
-## Agent Responsibilities
+## 🚀 Quick Start
 
-| Agent | Role | Key Output |
-|--------|------|------------|
-| **Research Agent** | Analyzes local policy signals (using dummy data). Summarizes if region is favorable for solar. | `ResearchResult` (boolean + rationale) |
-| **Permitting Agent** | Loads mock permitting rules and auto-fills permit forms. | `PermittingResult` (form + readiness score) |
-| **Design Agent** | Estimates system capacity and annual yield using mock irradiance data. | `DesignResult` (capacity, yield, BoM) |
-
-The **Orchestrator** runs all agents asynchronously and merges their findings into a **composite score** and final decision.
-
----
-
-## Scoring Logic
-
-| Component | Weight | Criteria |
-|------------|---------|----------|
-| Research | 40% | Favorable local policy, incentives, or no moratoriums |
-| Permitting | 30% | Readiness score from auto-filled permit form |
-| Design | 30% | ≥ 3 kW capacity and ≥ 3000 kWh/yr yield |
-
-**Composite ≥ 70 → GO**  
-**Composite < 70 → NO-GO**
-
----
-
-## ⚙️ Running Locally
-
-### 1️⃣ Clone the Repository
-
+### 1️⃣ Setup Environment
 ```bash
 git clone https://github.com/Yalamanchili7/solar-feasibility-checker.git
 cd solar-feasibility-checker
-```
-
-### 2️⃣ Create and Activate a Virtual Environment
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate       # Windows: .venv\Scripts\activate
-```
-
-### 3️⃣ Install Dependencies
-
-```bash
-python -m pip install --upgrade pip
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Run the CLI Feasibility Checker
+### 2️⃣ Add API Keys
 
+Create `.env` or set environment variables:
 ```bash
-export PYTHONPATH=.
-python -m src.main --address "1207 E 8th St, Tempe, AZ"
+export OPENAI_API_KEY="your_openai_key_here"
+export NREL_API_KEY="your_nrel_key_here"
+export NEWS_API_KEY="news_api_key"
 ```
 
-**✅ Expected Output**
+These are used by:
+- `app/utils/llm_client.py` → OpenAI GPT-4o-mini  
+- `app/utils/config.py` → NREL PVWatts API
 
-```
-🔆 Running Solar Feasibility Check...
-
-╭───────────── Result ──────────────╮
-│ Address: 1207 E 8th St, Tempe, AZ │
-│ Decision: GO (74.5)               │
-╰───────────────────────────────────╯
-                                  Agent Summary                                  
-┏━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Agent      ┃ Summary                                                          ┃
-┡━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ Research   │ Favorable policy environment for solar.                         │
-│ Permitting │ Tempe, AZ (80/100)                                              │
-│ Design     │ 9.84 kW → 16531.0 kWh/yr                                        │
-└────────────┴──────────────────────────────────────────────────────────────────┘
-✅ Site looks feasible for solar installation!
-```
-
-A JSON report will be created under `outputs/`.
-
-### 5️⃣ Run the Streamlit Web App
-
+### 3️⃣ Run the System
 ```bash
-streamlit run src/ui/app.py
+python cli.py --address "Phoenix, AZ" --save
 ```
 
-Then open your browser to:
-
-👉 **http://localhost:8501**
-
-Enter a full address (e.g., `1207 E 8th St, Tempe, AZ`) and click  
-**Run Feasibility Check** to see results visually.
-
-### 6️⃣ Run Unit Tests (Optional)
-
-```bash
-pytest -q
+Example output:
 ```
-
-**✅ Expected Output**
-
+🌞 Running Solar Feasibility Analysis for: Phoenix, AZ
+✅ Matched permitting rule for phoenix
+✅ Final Decision: GO (Score: 72)
+💾 Results saved to: outputs/output_Phoenix_AZ_20251111_1930.json
 ```
-.                                                                   [100%]
-1 passed in 0.7s
-```
-
-### 7️⃣ Run with Docker (Optional)
-
-If you prefer to containerize the app:
-
-```bash
-docker build -t solar-feasibility-checker .
-docker run -p 8501:8501 solar-feasibility-checker
-```
-
-Then open your browser at:  
-👉 **http://localhost:8501**
 
 ---
 
-## 💬 Reflection & Limitations
+## 🧩 How It Works
 
-This project was built as a **realistic proof-of-concept** rather than a production pipeline.  
-The focus was on **architecture, reasoning, and clarity**, not on full data integrations.
+1. **Research Agent**
+   - Scrapes recent renewable energy headlines & policy sentiment.
+   - Extracts tone, risks, and computes a “favorability score”.
 
-**Mock data** ensures reproducibility while demonstrating how independent agents can coordinate.  
-If expanded, next steps would include:
+2. **Permitting Agent**
+   - Loads permitting rules from `app/data/permitting_rules.csv`.
+   - Determines which permits are required, expected delays, and friendliness.
+   - Computes a **permit friendliness score (0–100)**.
 
-- **Connecting the Research Agent** to live policy/news APIs and LLM summarization.
+3. **Design Agent**
+   - Uses geocoding + NREL PVWatts to estimate solar production.
+   - LLM generates the **Bill of Materials** and engineering notes.
+   - Produces a design performance score.
 
-- **Using NREL PVWatts** or satellite imagery for more accurate irradiance modeling.
-
-- **Auto-generating PDF permit forms** from the permitting JSON.
-
-- **Adding richer inter-agent communication** and caching layers.
+4. **Orchestrator**
+   - Integrates agent results.
+   - Runs a final GPT evaluation to produce a `GO` or `NO_GO` decision.
 
 ---
 
-## 🧾 License
+## 🧠 Example Decision Output
 
-This project is released under the **MIT License** — feel free to fork, modify, and extend it.
+```json
+{
+  "go_no_go": "GO",
+  "score": 72,
+  "component_scores": {
+    "research": 75,
+    "permitting": 60,
+    "design": 80
+  },
+  "justification": [
+    "Research score 75 reflects supportive policy sentiment.",
+    "Permitting score 60 accounts for manageable jurisdiction requirements.",
+    "Design score 80 reflects strong yield and system robustness."
+  ]
+}
+```
+
+---
+
+## 🧪 Testing Scenarios
+
+You can easily test multiple addresses:
+
+```bash
+python cli.py --address "Austin, TX" --save
+python cli.py --address "Seattle, WA" --save
+python cli.py --address "Miami, FL" --save
+python cli.py --address "Denver, CO" --save
+```
+
+All results are stored in:
+```
+outputs/output_<city>_<timestamp>.json
+```
+
+---
+
+## 📊 Scoring Methodology
+
+| Component | Weight | Factors |
+|------------|--------|----------|
+| **Research** | 40% | Policy sentiment, regulatory support, risks |
+| **Permitting** | 30% | Review time, required permits, fire code |
+| **Design** | 30% | Yield, capacity, equipment, shading, cost |
+
+The final score is an aggregate:
+```
+total = (research * 0.4) + (permitting * 0.3) + (design * 0.3)
+```
+
+---
+
+## 🧾 Logging
+
+Each agent logs detailed runs in:
+```
+outputs/logs/<agent_name>/
+```
+
+Including:
+- Raw LLM prompts/responses
+- Parsed JSON
+- Computed scores
+- Fallback flags (if any)
+
+---
+
+## 🧱 Tech Stack
+
+- **Python 3.11**
+- **OpenAI GPT-4o-mini** (LLM reasoning)
+- **NREL PVWatts API** (solar energy modeling)
+- **Pandas**, **Requests**, **JSON**, **Argparse**
+- **Structured Logging + Fallback Error Handling**
+
+---
+
+## 🌍 Next Steps (Future Enhancements)
+
+- 🔁 Add caching for policy/news scraping  
+- 🗺️ Integrate GIS-based shading analysis  
+- 🧩 Fine-tune JSON schema validation  
+- 💬 Stream LLM outputs in real-time for UI integration  
+
+---
+
+## 💡 Author
+**Sundeep Yalamanchili**  
+

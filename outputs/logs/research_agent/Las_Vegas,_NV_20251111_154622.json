@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-11-11T15:46:22.251057",
+  "address": "Las Vegas, NV",
+  "system_prompt": "You are a renewable energy policy analyst. Given recent headlines, determine whether the local environment is favorable for new solar projects. Consider permitting support, community acceptance, and environmental policies.",
+  "user_prompt": "\nAddress: Las Vegas, NV\n\nRecent Headlines:\n['Las Vegas-sized solar farm canceled in Nevada desert, for now']\n\nPlease:\n1. Summarize the policy and regulatory tone in 3\u20135 sentences.\n2. Identify up to 3 risks or red flags.\n3. Assign a favorability score (0\u2013100).\n4. Output your answer as JSON with keys: summary, risks, score, sentiment.\n",
+  "raw_response": "{\n  \"summary\": \"The recent cancellation of a large solar farm project in the Nevada desert indicates a challenging regulatory environment for solar development in Las Vegas. This decision may reflect underlying issues with permitting processes and community acceptance, suggesting that local stakeholders may not fully support large-scale solar initiatives. Additionally, the cancellation could signal potential hurdles in environmental policies that affect project viability.\",\n  \"risks\": [\n    \"Community opposition to large-scale solar projects may hinder future developments.\",\n    \"Permitting processes could be lengthy or complicated, delaying project timelines.\",\n    \"Environmental policies may impose restrictions that limit the feasibility of new solar installations.\"\n  ],\n  \"score\": 45,\n  \"sentiment\": \"negative\"\n}",
+  "parsed_analysis": {
+    "summary": "The recent cancellation of a large solar farm project in the Nevada desert indicates a challenging regulatory environment for solar development in Las Vegas. This decision may reflect underlying issues with permitting processes and community acceptance, suggesting that local stakeholders may not fully support large-scale solar initiatives. Additionally, the cancellation could signal potential hurdles in environmental policies that affect project viability.",
+    "risks": [
+      "Community opposition to large-scale solar projects may hinder future developments.",
+      "Permitting processes could be lengthy or complicated, delaying project timelines.",
+      "Environmental policies may impose restrictions that limit the feasibility of new solar installations."
+    ],
+    "score": 45,
+    "sentiment": "negative"
+  }
+}
